@@ -49,13 +49,16 @@ describe Individual do
     alpha_name = alphas[0]['name']
     alpha_color = alphas[0]['color']
 
-    expect(alphas[0]['states'][0]['checklists'][0]['original_alpha_name']).to eq alpha_name
-    expect(alphas[0]['states'][0]['checklists'][0]['original_alpha_color']).to eq alpha_color
+    checklist_index = {alpha: 0, state: 0, checklist: 0}
+    checklist = individual.lookup(checklist_index)
+
+    expect(checklist['original_alpha_name']).to eq alpha_name
+    expect(checklist['original_alpha_color']).to eq alpha_color
 
     state_name = alphas[0]['states'][0]['name']
 
-    expect(alphas[0]['states'][0]['checklists'][0]['original_state_name']).to eq state_name
-    expect(alphas[0]['states'][0]['checklists'][0]['original_state_order']).to eq 0
+    expect(checklist['original_state_name']).to eq state_name
+    expect(checklist['original_state_order']).to eq 0
   end
 
 
