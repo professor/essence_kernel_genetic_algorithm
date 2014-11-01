@@ -7,9 +7,7 @@ class Individual
   end
 
   def lookup(hash)
-    alpha = hash[:alpha]
-    state = hash[:state]
-    checklist = hash[:checklist]
+    (alpha, state, checklist) = index_parts(hash)
 
     if alpha and state and checklist
       alphas[alpha]['states'][state]['checklists'][checklist]
@@ -47,4 +45,13 @@ class Individual
     end
   end
 
+  def remove_checklist(from)
+    (alpha_index, state_index, checklist_index) = index_parts(from)
+
+    alphas[alpha_index]['states'][state_index]['checklists'].delete_at(checklist_index)
+  end
+
+  def index_parts(hash)
+    return [hash[:alpha], hash[:state], hash[:checklist]]
+  end
 end

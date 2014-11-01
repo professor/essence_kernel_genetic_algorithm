@@ -63,5 +63,33 @@ describe Individual do
 
 
 
+  context 'remove a checklist item' do
+    it 'from an alphas state with three checklists ' do
+      from = {alpha: 0, state: 0, checklist: 2}
+      id = individual.lookup(from)['id']
+      parent_state = {alpha: 0, state: 0}
+      number_checklists_for_parent_state = individual.lookup(parent_state)['checklists'].length
+
+      checklist = individual.remove_checklist(from)
+
+      expect(checklist['id']).to eq id
+      expect(individual.lookup(parent_state)['checklists'].length).to eq number_checklists_for_parent_state - 1
+    end
+
+  it 'from an alphas state with one checklists keeps the state' do
+      from = {alpha: 0, state: 6, checklist: 0}
+      id = individual.lookup(from)['id']
+      parent_state = {alpha: 0, state: 6}
+      expect(individual.lookup(parent_state)['checklists'].length).to eq 1
+
+      checklist = individual.remove_checklist(from)
+
+      expect(checklist['id']).to eq id
+      expect(individual.lookup(parent_state)['checklists'].length).to eq 0
+    end
+
+  end
+
+
 
 end
