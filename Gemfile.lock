@@ -1,0 +1,27 @@
+PATH
+  remote: .
+  specs:
+    essence_kernel_genetic_algorithm (0.0.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    coderay (1.1.0)
+    json (1.8.1)
+    method_source (0.8.2)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    rake (10.3.2)
+    slop (3.6.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.7)
+  essence_kernel_genetic_algorithm!
+  json (~> 1.8.1)
+  pry
+  rake (~> 10.0)
