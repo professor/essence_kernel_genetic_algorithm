@@ -6,6 +6,10 @@ class Individual
 
   end
 
+  def index_parts(hash)
+    return [hash[:alpha], hash[:state], hash[:checklist]]
+  end
+
   def lookup(hash)
     (alpha, state, checklist) = index_parts(hash)
 
@@ -51,7 +55,36 @@ class Individual
     alphas[alpha_index]['states'][state_index]['checklists'].delete_at(checklist_index)
   end
 
-  def index_parts(hash)
-    return [hash[:alpha], hash[:state], hash[:checklist]]
+  def add_checklist(to, checklist)
+    (alpha_index, state_index, checklist_index) = index_parts(to)
+
+    alphas[alpha_index]['states'][state_index]['checklists'].insert(checklist_index, checklist)
   end
+
+  def random_helper(options)
+    able_to_insert_at_end = options[:able_to_insert_at_end]
+    from = {}
+
+    number_alphas = self.alphas.length
+    alpha_index = Random.rand(number_alphas)
+    from[:alpha] = alpha_index
+
+    number_of_states = self.lookup(from).length
+    state_index = Random.rand(number_of_states)
+    from[:state] = state_index
+
+    number_of_checklists = self.lookup(from).length + able_to_insert_at_end
+    checklist_index = Random.rand(number_of_checklists)
+    from[:checklist] = checklist_index
+    from
+  end
+
+  def random_to
+    random_helper(able_to_insert_at_end: 1)
+  end
+
+  def random_from
+    random_helper(able_to_insert_at_end: 0)
+  end
+
 end

@@ -61,8 +61,6 @@ describe Individual do
     expect(checklist['original_state_order']).to eq 0
   end
 
-
-
   context 'remove a checklist item' do
     it 'from an alphas state with three checklists ' do
       from = {alpha: 0, state: 0, checklist: 2}
@@ -88,6 +86,22 @@ describe Individual do
       expect(individual.lookup(parent_state)['checklists'].length).to eq 0
     end
 
+  end
+
+  context 'add a checklist item' do
+    it 'to the beginning of an alphas state ' do
+      id = 291
+      checklist = {'id' => id}
+      to   = {alpha: 0, state: 1, checklist: 0}
+      parent_state = {alpha: 0, state: 1}
+
+      number_checklists_for_state1 = individual.lookup(parent_state)['checklists'].length
+
+      individual.add_checklist(to, checklist)
+
+      expect(individual.lookup(to)['id']).to eq id
+      expect(individual.lookup(parent_state)['checklists'].length).to eq number_checklists_for_state1 + 1
+    end
   end
 
 
