@@ -6,6 +6,22 @@ class Individual
 
   end
 
+  def lookup(hash)
+    alpha = hash[:alpha]
+    state = hash[:state]
+    checklist = hash[:checklist]
+
+    if alpha and state and checklist
+      alphas[alpha]['states'][state]['checklists'][checklist]
+    elsif alpha and state
+      alphas[alpha]['states'][state]
+    elsif alpha
+      alphas[alpha]
+    else
+      raise 'improper lookup'
+    end
+  end
+
   def self.from_json_string(json_string)
     json = JSON.parse(json_string)
 
