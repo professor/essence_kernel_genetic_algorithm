@@ -65,7 +65,7 @@ describe Individual do
     expect { individual.length(checklist2) }.to raise_error
 
     checklist3 = {alpha: 0, state: 0, checklist: 2}
-    expect { individual.length(checklist3) }.to raise_error 
+    expect { individual.length(checklist3) }.to raise_error
   end
 
 

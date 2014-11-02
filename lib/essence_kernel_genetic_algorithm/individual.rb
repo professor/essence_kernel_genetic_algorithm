@@ -104,5 +104,4 @@ class Individual
   def random_from
     random_helper(able_to_insert_at_end: 0)
   end
-
 end
