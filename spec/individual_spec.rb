@@ -42,6 +42,32 @@ describe Individual do
     expect(individual.lookup(checklist3)['id']).to eq 913
   end
 
+  it '#length' do
+    # individual = {}
+    # expect(individual.length(individual)).to eq 7
+
+    first_alpha = {alpha: 0}
+    expect(individual.length(first_alpha)).to eq 7
+
+    last_alpha = {alpha: 6}
+    expect(individual.length(last_alpha)).to eq 6
+
+    first_state = {alpha: 0, state: 0}
+    expect(individual.length(first_state)).to eq 3
+
+    last_state = {alpha: 0, state: 6}
+    expect(individual.length(last_state)).to eq 1
+
+    checklist1 = {alpha: 0, state: 0, checklist: 0}
+    expect { individual.length(checklist1) }.to raise_error
+
+    checklist2 = {alpha: 0, state: 0, checklist: 1}
+    expect { individual.length(checklist2) }.to raise_error
+
+    checklist3 = {alpha: 0, state: 0, checklist: 2}
+    expect { individual.length(checklist3) }.to raise_error 
+  end
+
 
   it 'copies name and color to checklists' do
     alphas = individual.alphas

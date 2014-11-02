@@ -24,6 +24,20 @@ class Individual
     end
   end
 
+  def length(hash)
+    (alpha, state, checklist) = index_parts(hash)
+
+    if alpha and state and checklist
+      raise 'improper length'
+    elsif alpha and state
+      alphas[alpha]['states'][state]['checklists'].length
+    elsif alpha
+      alphas[alpha]['states'].length
+    else
+      alphas.length
+    end
+  end
+
   def self.from_json_string(json_string)
     json = JSON.parse(json_string)
 
