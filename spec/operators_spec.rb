@@ -18,7 +18,7 @@ describe Operators do
     let(:json_string) { File.read(File.expand_path('../fixtures/CMU_1.1.json', __FILE__)) }
     let(:individual) { Individual.from_json_string(json_string) }
 
-    it 'workes' do
+    it 'normal case' do
       from = {alpha: 0, state:0, checklist: 0}
       allow(individual).to receive(:random_from).and_return(from)
       from_number_of_checklists = individual.length({alpha:0, state: 0})
@@ -27,10 +27,23 @@ describe Operators do
 
       Operators.move_random_checklist_one_state_later(individual)
 
-      expect(individual.length({alpha:0, state: 0})).to eq (from_number_of_checklists - 1)
+      expect(individual.length({alpha:0, state: 0})).to eq from_number_of_checklists - 1
       expect(individual.length({alpha:0, state: 1})).to eq to_number_of_checklists + 1
       expect(individual.lookup({alpha:0, state: 0})['checklists'].any? { |c| c['id'] == id}).to eq false
       expect(individual.lookup({alpha:0, state: 1})['checklists'].any? { |c| c['id'] == id}).to eq true
+    end
+
+    it 'does nothing for last state in alpha' do
+      state_index = individual.length({alpha: 0}) - 1
+      from = {alpha: 0, state: state_index, checklist: 0}
+      allow(individual).to receive(:random_from).and_return(from)
+      from_number_of_checklists = individual.length({alpha:0, state: state_index})
+      id = individual.lookup(from)['id']
+
+      Operators.move_random_checklist_one_state_later(individual)
+
+      expect(individual.length({alpha:0, state: state_index})).to eq from_number_of_checklists
+      expect(individual.lookup({alpha:0, state: state_index})['checklists'].any? { |c| c['id'] == id}).to eq true
     end
 
   end
