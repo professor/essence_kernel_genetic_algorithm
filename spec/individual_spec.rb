@@ -85,25 +85,40 @@ describe Individual do
       expect(checklist['id']).to eq id
       expect(individual.lookup(parent_state)['checklists'].length).to eq 0
     end
-
   end
 
-  context 'add a checklist item' do
-    it 'to the beginning of an alphas state ' do
-      id = 291
-      checklist = {'id' => id}
-      to   = {alpha: 0, state: 1, checklist: 0}
-      parent_state = {alpha: 0, state: 1}
+  context '#add_checklist' do
+    context 'given an alpha, state, and checklist' do
+      context 'add checklist item anywhere' do
+        it 'to the beginning of an alphas state ' do
+        id = 291
+        checklist = {'id' => id}
+        to   = {alpha: 0, state: 1, checklist: 0}
+        parent_state = {alpha: 0, state: 1}
+        number_checklists = individual.lookup(parent_state)['checklists'].length
 
-      number_checklists_for_state1 = individual.lookup(parent_state)['checklists'].length
+        individual.add_checklist(to, checklist)
 
-      individual.add_checklist(to, checklist)
+        expect(individual.lookup(to)['id']).to eq id
+        expect(individual.lookup(parent_state)['checklists'].length).to eq number_checklists + 1
+      end
+      end
+    end
 
-      expect(individual.lookup(to)['id']).to eq id
-      expect(individual.lookup(parent_state)['checklists'].length).to eq number_checklists_for_state1 + 1
+    context 'given an alpha and state' do
+      context 'add checklist item to end of checklists for that state' do
+        it 'to the beginning of an alphas state ' do
+          id = 291
+          checklist = {'id' => id}
+          to_state = {alpha: 0, state: 1}
+          number_checklists = individual.lookup(to_state)['checklists'].length
+
+          individual.add_checklist(to_state, checklist)
+
+          expect(individual.lookup(to_state)['checklists'].length).to eq number_checklists + 1
+          expect(individual.lookup(to_state)['checklists'].last['id']).to eq id
+        end
+      end
     end
   end
-
-
-
 end

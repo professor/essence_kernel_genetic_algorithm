@@ -58,7 +58,11 @@ class Individual
   def add_checklist(to, checklist)
     (alpha_index, state_index, checklist_index) = index_parts(to)
 
-    alphas[alpha_index]['states'][state_index]['checklists'].insert(checklist_index, checklist)
+    if(checklist_index == nil)
+      alphas[alpha_index]['states'][state_index]['checklists'].push(checklist)
+    else
+      alphas[alpha_index]['states'][state_index]['checklists'].insert(checklist_index, checklist)
+    end
   end
 
   def random_helper(options)
