@@ -38,11 +38,38 @@ class Individual
     end
   end
 
+  def create_location_hash
+    location_hash = {}
+    alphas.each_with_index do |alpha, alpha_index|
+      alpha_id = alpha['id']
+      alpha['states'].each_with_index do |state, state_index|
+        state_id = state['id']
+        state['checklists'].each do |checklist|
+          checklist_id = checklist['id']
+          location_hash[checklist_id] = {alpha: alpha_index, state: state_index}
+        end
+      end
+    end
+    @location_hash = location_hash
+  end
+
+  def before(checklist_id1, checklist_id2)
+    location_1 = @location_hash[checklist_id1]
+    location_2 = @location_hash[checklist_id2]
+    if location_1[:alpha] == location_2[:alpha]
+      if location_1[:state] < location_2[:state]
+        return true
+      end
+    end
+    return false
+  end
+
   def self.from_json_string(json_string)
     json = JSON.parse(json_string)
 
     individual = Individual.new
     individual.alphas = json['alphas']
+    individual.create_location_hash
     individual.copy_alpha_properties_to_each_checklist
     individual
   end
@@ -63,14 +90,24 @@ class Individual
     end
   end
 
+  def remove_checklist_from_location_hash(checklist_index)
+    @location_hash.delete(checklist_index)
+  end
+
+  def add_checklist_to_location_hash(checklist_id, alpha_index, state_index)
+    @location_hash[checklist_id] = {alpha: alpha_index, state: state_index}
+  end
+
   def remove_checklist(from)
     (alpha_index, state_index, checklist_index) = index_parts(from)
+    remove_checklist_from_location_hash(checklist_index)
 
     alphas[alpha_index]['states'][state_index]['checklists'].delete_at(checklist_index)
   end
 
   def add_checklist(to, checklist)
     (alpha_index, state_index, checklist_index) = index_parts(to)
+    add_checklist_to_location_hash(checklist['id'], alpha_index, state_index)
 
     if(checklist_index == nil)
       alphas[alpha_index]['states'][state_index]['checklists'].push(checklist)

@@ -68,6 +68,57 @@ describe Individual do
     expect { individual.length(checklist3) }.to raise_error
   end
 
+  context '#create_location_hash' do
+    it 'works' do
+      location_hash = individual.create_location_hash
+
+      expect(location_hash[911]).to eq ({alpha: 0, state:0})
+      expect(location_hash[914]).to eq ({alpha: 0, state:1})
+      expect(location_hash[929]).to eq ({alpha: 1, state:0})
+    end
+  end
+
+  context '#before' do
+    let(:json) {
+      {alphas:
+        [{states: [{checklists: [{id: 'alpha1_state1a'}, {id: 'alpha1_state1b'}]},
+          {checklists: [{id: 'alpha1_state2a'}, {id: 'alpha1_state2b'}]}]},
+          {states: [{checklists: [{id: 'alpha2_state1a'}, {id: 'alpha2_state1b'}]},
+            {checklists: [{id: 'alpha2_state2a'}, {id: 'alpha2_state2b'}]}]},
+        ]
+      }
+    }
+    let(:simple) { Individual.from_json_string(json.to_json) }
+
+    it 'two checklist in the same state are not before each other' do
+      expect(individual.before(911, 912)).to eq false
+      expect(individual.before(912, 911)).to eq false
+
+      expect(simple.before('alpha1_state1a', 'alpha1_state1b')).to eq false
+      expect(simple.before('alpha1_state1b', 'alpha1_state1a')).to eq false
+
+    end
+
+    it 'two checklists in different alphas are not not before each other' do
+      expect(individual.before(911, 912)).to eq false
+      expect(individual.before(912, 911)).to eq false
+
+      expect(simple.before('alpha1_state1a', 'alpha2_state1a')).to eq false
+      expect(simple.before('alpha2_state1a', 'alpha1_state1a')).to eq false
+    end
+
+    it 'is true for a checklists in a later state' do
+      expect(individual.before(911, 914)).to eq true
+
+      expect(simple.before('alpha1_state1a', 'alpha1_state2a')).to eq true
+    end
+
+    it 'is false for a checklist in an earlier state' do
+      expect(individual.before(914, 911)).to eq false
+
+      expect(simple.before('alpha1_state2a', 'alpha1_state1a')).to eq false
+    end
+  end
 
   it 'copies name and color to checklists' do
     alphas = individual.alphas
@@ -88,6 +139,10 @@ describe Individual do
   end
 
   context 'remove a checklist item' do
+    before do
+      allow(individual).to receive(:remove_checklist_from_location_hash)
+    end
+
     it 'from an alphas state with three checklists ' do
       from = {alpha: 0, state: 0, checklist: 2}
       id = individual.lookup(from)['id']
@@ -112,9 +167,19 @@ describe Individual do
       expect(individual.lookup(parent_state)['checklists'].length).to eq 0
     end
 
+    it 'updates location_hash' do
+      from = {alpha: 0, state: 0, checklist: 2}
+      expect(individual).to receive(:remove_checklist_from_location_hash)
+
+      individual.remove_checklist(from)
+    end
   end
 
   context '#add_checklist' do
+    before do
+      allow(individual).to receive(:add_checklist_to_location_hash)
+    end
+
     context 'given an alpha, state, and checklist' do
       context 'add checklist item anywhere' do
         it 'to the beginning of an alphas state ' do
