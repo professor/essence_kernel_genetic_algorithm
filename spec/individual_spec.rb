@@ -100,7 +100,7 @@ describe Individual do
       expect(individual.lookup(parent_state)['checklists'].length).to eq number_checklists_for_parent_state - 1
     end
 
-  it 'from an alphas state with one checklists keeps the state' do
+    it 'from an alphas state with one checklists keeps the state' do
       from = {alpha: 0, state: 6, checklist: 0}
       id = individual.lookup(from)['id']
       parent_state = {alpha: 0, state: 6}
@@ -111,6 +111,7 @@ describe Individual do
       expect(checklist['id']).to eq id
       expect(individual.lookup(parent_state)['checklists'].length).to eq 0
     end
+
   end
 
   context '#add_checklist' do
