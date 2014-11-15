@@ -24,18 +24,46 @@ class Individual
     end
   end
 
-  def length(hash)
+  private
+  def states_lookup(hash)
     (alpha, state, checklist) = index_parts(hash)
 
     if alpha and state and checklist
-      raise 'improper length'
+      raise 'improper lookup'
     elsif alpha and state
-      alphas[alpha]['states'][state]['checklists'].length
+      raise 'improper lookup'
     elsif alpha
-      alphas[alpha]['states'].length
+      alphas[alpha]['states']
     else
-      alphas.length
+      raise 'improper lookup'
     end
+  end
+
+  def checklists_lookup(hash)
+    (alpha, state, checklist) = index_parts(hash)
+
+    if alpha and state and checklist
+      raise 'improper lookup'
+    elsif alpha and state
+      alphas[alpha]['states'][state]['checklists']
+    elsif alpha
+      raise 'improper lookup'
+    else
+      raise 'improper lookup'
+    end
+  end
+
+  public
+  def number_of_alphas
+    self.alphas.length
+  end
+
+  def number_of_states(hash)
+    states_lookup(hash).length
+  end
+
+  def number_of_checklists(hash)
+    checklists_lookup(hash).length
   end
 
   def create_location_hash
@@ -120,15 +148,15 @@ class Individual
     able_to_insert_at_end = options[:able_to_insert_at_end]
     from = {}
 
-    number_alphas = self.alphas.length
-    alpha_index = Random.rand(number_alphas)
+    number_of_alphas = self.number_of_alphas
+    alpha_index = Random.rand(number_of_alphas)
     from[:alpha] = alpha_index
 
-    number_of_states = self.lookup(from).length
+    number_of_states = self.number_of_states(from)
     state_index = Random.rand(number_of_states)
     from[:state] = state_index
 
-    number_of_checklists = self.lookup(from).length + able_to_insert_at_end
+    number_of_checklists = self.number_of_checklists(from) + able_to_insert_at_end
     checklist_index = Random.rand(number_of_checklists)
     from[:checklist] = checklist_index
     from
@@ -140,5 +168,24 @@ class Individual
 
   def random_from
     random_helper(able_to_insert_at_end: 0)
+  end
+
+  def total_number_of_checklists
+    count = 0
+
+    self.number_of_alphas.times do |alpha_index|
+      from = {alpha: alpha_index}
+      number_of_states = self.number_of_states(from)
+
+      number_of_states.times do |state_index|
+        from = {alpha: alpha_index, state: state_index}
+        number_of_checklists = self.number_of_checklists(from)
+
+        number_of_checklists.times do |checklist_index|
+          count += 1
+        end
+      end
+    end
+    count
   end
 end

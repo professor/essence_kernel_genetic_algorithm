@@ -43,5 +43,4 @@ describe EmpiricalData do
       expect(result).to eq true
     end
   end
-
 end

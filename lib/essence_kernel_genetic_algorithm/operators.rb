@@ -12,7 +12,7 @@ class Operators
   end
 
   def self.move_checklist_one_state_later(individual, from)
-    if from[:state] < individual.length({alpha: from[:alpha]}) - 1
+    if from[:state] < individual.number_of_states({alpha: from[:alpha]}) - 1
       checklist = individual.remove_checklist(from)
       to = {alpha: from[:alpha], state: from[:state] + 1}
       individual.add_checklist(to, checklist)

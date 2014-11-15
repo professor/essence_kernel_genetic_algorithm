@@ -20,27 +20,27 @@ describe Operators do
 
     it 'normal case' do
       from = {alpha: 0, state:0, checklist: 0}
-      from_number_of_checklists = individual.length({alpha:0, state: 0})
-      to_number_of_checklists = individual.length({alpha:0, state: 1})
+      from_number_of_checklists = individual.number_of_checklists({alpha:0, state: 0})
+      to_number_of_checklists = individual.number_of_checklists({alpha:0, state: 1})
       id = individual.lookup(from)['id']
 
       Operators.move_checklist_one_state_later(individual, from)
 
-      expect(individual.length({alpha:0, state: 0})).to eq from_number_of_checklists - 1
-      expect(individual.length({alpha:0, state: 1})).to eq to_number_of_checklists + 1
+      expect(individual.number_of_checklists({alpha:0, state: 0})).to eq from_number_of_checklists - 1
+      expect(individual.number_of_checklists({alpha:0, state: 1})).to eq to_number_of_checklists + 1
       expect(individual.lookup({alpha:0, state: 0})['checklists'].any? { |c| c['id'] == id}).to eq false
       expect(individual.lookup({alpha:0, state: 1})['checklists'].any? { |c| c['id'] == id}).to eq true
     end
 
     it 'does nothing for last state in alpha' do
-      state_index = individual.length({alpha: 0}) - 1
+      state_index = individual.number_of_states({alpha: 0}) - 1
       from = {alpha: 0, state: state_index, checklist: 0}
-      from_number_of_checklists = individual.length({alpha:0, state: state_index})
+      from_number_of_checklists = individual.number_of_checklists({alpha:0, state: state_index})
       id = individual.lookup(from)['id']
 
       Operators.move_checklist_one_state_later(individual, from)
 
-      expect(individual.length({alpha:0, state: state_index})).to eq from_number_of_checklists
+      expect(individual.number_of_checklists({alpha:0, state: state_index})).to eq from_number_of_checklists
       expect(individual.lookup({alpha:0, state: state_index})['checklists'].any? { |c| c['id'] == id}).to eq true
     end
   end

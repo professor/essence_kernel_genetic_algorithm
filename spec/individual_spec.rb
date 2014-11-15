@@ -19,62 +19,102 @@ describe Individual do
     expect(alphas[6]['states'].length).to eq 6
   end
 
-  it 'lookup' do
-    first_alpha = {alpha: 0}
-    expect(individual.lookup(first_alpha)['id']).to eq 36
+  context '#lookup' do
+    it 'looks up the correct id' do
+      first_alpha = {alpha: 0}
+      expect(individual.lookup(first_alpha)['id']).to eq 36
 
-    last_alpha = {alpha: 6}
-    expect(individual.lookup(last_alpha)['id']).to eq 42
+      last_alpha = {alpha: 6}
+      expect(individual.lookup(last_alpha)['id']).to eq 42
 
-    first_state = {alpha: 0, state: 0}
-    expect(individual.lookup(first_state)['id']).to eq 251
+      first_state = {alpha: 0, state: 0}
+      expect(individual.lookup(first_state)['id']).to eq 251
 
-    last_state = {alpha: 0, state: 6}
-    expect(individual.lookup(last_state)['id']).to eq 257
+      last_state = {alpha: 0, state: 6}
+      expect(individual.lookup(last_state)['id']).to eq 257
 
-    checklist1 = {alpha: 0, state: 0, checklist: 0}
-    expect(individual.lookup(checklist1)['id']).to eq 911
+      checklist1 = {alpha: 0, state: 0, checklist: 0}
+      expect(individual.lookup(checklist1)['id']).to eq 911
 
-    checklist2 = {alpha: 0, state: 0, checklist: 1}
-    expect(individual.lookup(checklist2)['id']).to eq 912
+      checklist2 = {alpha: 0, state: 0, checklist: 1}
+      expect(individual.lookup(checklist2)['id']).to eq 912
 
-    checklist3 = {alpha: 0, state: 0, checklist: 2}
-    expect(individual.lookup(checklist3)['id']).to eq 913
+      checklist3 = {alpha: 0, state: 0, checklist: 2}
+      expect(individual.lookup(checklist3)['id']).to eq 913
+    end
+
+    context 'looks up the correct length' do
+      it 'for the alphas' do
+        expect(individual.lookup({alpha: 0})['states'].length).to eq 7
+        expect(individual.lookup({alpha: 1})['states'].length).to eq 6
+        expect(individual.lookup({alpha: 2})['states'].length).to eq 6
+        expect(individual.lookup({alpha: 3})['states'].length).to eq 7
+        expect(individual.lookup({alpha: 4})['states'].length).to eq 5
+        expect(individual.lookup({alpha: 5})['states'].length).to eq 4
+        expect(individual.lookup({alpha: 6})['states'].length).to eq 6
+      end
+
+      it 'for the states' do
+        expect(individual.lookup({alpha: 0, state: 0})['checklists'].length).to eq 3
+        expect(individual.lookup({alpha: 0, state: 1})['checklists'].length).to eq 5
+        expect(individual.lookup({alpha: 0, state: 2})['checklists'].length).to eq 3
+        expect(individual.lookup({alpha: 0, state: 3})['checklists'].length).to eq 4
+        expect(individual.lookup({alpha: 0, state: 4})['checklists'].length).to eq 1
+        expect(individual.lookup({alpha: 0, state: 5})['checklists'].length).to eq 1
+        expect(individual.lookup({alpha: 0, state: 6})['checklists'].length).to eq 1
+        expect(individual.lookup({alpha: 6, state: 0})['checklists'].length).to eq 4
+        expect(individual.lookup({alpha: 6, state: 1})['checklists'].length).to eq 8
+        expect(individual.lookup({alpha: 6, state: 2})['checklists'].length).to eq 3
+        expect(individual.lookup({alpha: 6, state: 3})['checklists'].length).to eq 6
+        expect(individual.lookup({alpha: 6, state: 4})['checklists'].length).to eq 2
+        expect(individual.lookup({alpha: 6, state: 5})['checklists'].length).to eq 4
+      end
+    end
   end
 
-  it '#length' do
-    # individual = {}
-    # expect(individual.length(individual)).to eq 7
+  context '#number_of_states' do
+    it 'for an alphas, returns the number of states' do
+      expect(individual.number_of_states({alpha: 0})).to eq 7
+      expect(individual.number_of_states({alpha: 1})).to eq 6
+      expect(individual.number_of_states({alpha: 2})).to eq 6
+      expect(individual.number_of_states({alpha: 3})).to eq 7
+      expect(individual.number_of_states({alpha: 4})).to eq 5
+      expect(individual.number_of_states({alpha: 5})).to eq 4
+      expect(individual.number_of_states({alpha: 6})).to eq 6
+    end
 
-    first_alpha = {alpha: 0}
-    expect(individual.length(first_alpha)).to eq 7
+    it 'for anything else, it errors' do
+      expect { individual.number_of_states({}) }.to raise_error
+      expect { individual.number_of_states({alpha: 0, state: 0}) }.to raise_error
+    end
+  end
 
-    last_alpha = {alpha: 6}
-    expect(individual.length(last_alpha)).to eq 6
+  context '#number_of_checklists' do
+    it 'for a state, returns the number of checklists' do
+      first_state = {alpha: 0, state: 0}
+      expect(individual.number_of_checklists(first_state)).to eq 3
 
-    first_state = {alpha: 0, state: 0}
-    expect(individual.length(first_state)).to eq 3
+      last_state = {alpha: 0, state: 6}
+      expect(individual.number_of_checklists(last_state)).to eq 1
 
-    last_state = {alpha: 0, state: 6}
-    expect(individual.length(last_state)).to eq 1
+      checklist1 = {alpha: 0, state: 0, checklist: 0}
+      expect { individual.number_of_checklists(checklist1) }.to raise_error
 
-    checklist1 = {alpha: 0, state: 0, checklist: 0}
-    expect { individual.length(checklist1) }.to raise_error
+      checklist2 = {alpha: 0, state: 0, checklist: 1}
+      expect { individual.number_of_checklists(checklist2) }.to raise_error
 
-    checklist2 = {alpha: 0, state: 0, checklist: 1}
-    expect { individual.length(checklist2) }.to raise_error
-
-    checklist3 = {alpha: 0, state: 0, checklist: 2}
-    expect { individual.length(checklist3) }.to raise_error
+      checklist3 = {alpha: 0, state: 0, checklist: 2}
+      expect { individual.number_of_checklists(checklist3) }.to raise_error
+    end
   end
 
   context '#create_location_hash' do
     it 'works' do
       location_hash = individual.create_location_hash
 
-      expect(location_hash[911]).to eq ({alpha: 0, state:0})
-      expect(location_hash[914]).to eq ({alpha: 0, state:1})
-      expect(location_hash[929]).to eq ({alpha: 1, state:0})
+      expect(location_hash[911]).to eq ({alpha: 0, state: 0})
+      expect(location_hash[914]).to eq ({alpha: 0, state: 1})
+      expect(location_hash[929]).to eq ({alpha: 1, state: 0})
     end
   end
 
@@ -183,17 +223,17 @@ describe Individual do
     context 'given an alpha, state, and checklist' do
       context 'add checklist item anywhere' do
         it 'to the beginning of an alphas state ' do
-        id = 291
-        checklist = {'id' => id}
-        to   = {alpha: 0, state: 1, checklist: 0}
-        parent_state = {alpha: 0, state: 1}
-        number_checklists = individual.lookup(parent_state)['checklists'].length
+          id = 291
+          checklist = {'id' => id}
+          to = {alpha: 0, state: 1, checklist: 0}
+          parent_state = {alpha: 0, state: 1}
+          number_checklists = individual.number_of_checklists(parent_state)
 
-        individual.add_checklist(to, checklist)
+          individual.add_checklist(to, checklist)
 
-        expect(individual.lookup(to)['id']).to eq id
-        expect(individual.lookup(parent_state)['checklists'].length).to eq number_checklists + 1
-      end
+          expect(individual.lookup(to)['id']).to eq id
+          expect(individual.number_of_checklists(parent_state)).to eq number_checklists + 1
+        end
       end
     end
 
@@ -203,14 +243,18 @@ describe Individual do
           id = 291
           checklist = {'id' => id}
           to_state = {alpha: 0, state: 1}
-          number_checklists = individual.lookup(to_state)['checklists'].length
+          number_checklists = individual.number_of_checklists(to_state)
 
           individual.add_checklist(to_state, checklist)
 
-          expect(individual.lookup(to_state)['checklists'].length).to eq number_checklists + 1
+          expect(individual.number_of_checklists(to_state)).to eq number_checklists + 1
           expect(individual.lookup(to_state)['checklists'].last['id']).to eq id
         end
       end
     end
+  end
+
+  it '#total_number_of_checklists' do
+    expect(individual.total_number_of_checklists).to eq 147
   end
 end
