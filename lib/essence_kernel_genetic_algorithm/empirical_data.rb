@@ -36,7 +36,6 @@ class EmpiricalData
           score_for_team += consider(individual, team_json, checklist_id.to_i, meeting_index)
         end
       end
-      puts "#{id} => #{score_for_team}"
       score_hash[id] = score_for_team
       total_score += score_for_team
     end
