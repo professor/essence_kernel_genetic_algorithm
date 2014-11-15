@@ -11,9 +11,7 @@ class Operators
     individual
   end
 
-  def self.move_random_checklist_one_state_later(individual)
-    from = individual.random_from
-
+  def self.move_checklist_one_state_later(individual, from)
     if from[:state] < individual.length({alpha: from[:alpha]}) - 1
       checklist = individual.remove_checklist(from)
       to = {alpha: from[:alpha], state: from[:state] + 1}
@@ -24,9 +22,12 @@ class Operators
     individual
   end
 
-  def self.move_random_checklist_one_state_earlier(individual)
+  def self.move_random_checklist_one_state_later(individual)
     from = individual.random_from
+    move_checklist_one_state_later(individual, from)
+  end
 
+  def self.move_checklist_one_state_earlier(individual, from)
     if from[:state] > 0
       checklist = individual.remove_checklist(from)
       to = {alpha: from[:alpha], state: from[:state] - 1}
@@ -37,4 +38,8 @@ class Operators
     individual
   end
 
+  def self.move_random_checklist_one_state_earlier(individual)
+    from = individual.random_from
+    move_checklist_one_state_earlier(individual, from)
+  end
 end
