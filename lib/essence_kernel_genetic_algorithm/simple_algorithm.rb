@@ -23,15 +23,15 @@ class SimpleAlgorithm
         number_of_checklists.times do |checklist_index|
           from = {alpha: alpha_index, state: state_index, checklist: checklist_index}
 
-          individual = Marshal.load(Marshal.dump(original))
+          candidate = Marshal.load(Marshal.dump(original))
 
-          Operators.move_checklist_one_state_later(individual, from) if (direction == :later)
-          Operators.move_checklist_one_state_earlier(individual, from) if (direction == :earlier)
+          Operators.move_checklist_one_state_later(candidate, from) if (direction == :later)
+          Operators.move_checklist_one_state_earlier(candidate, from) if (direction == :earlier)
 
-          candidate_score_hash = EmpiricalData.evaluate(original, team_data)
+          candidate_score_hash = EmpiricalData.evaluate(candidate, team_data)
 
           if EmpiricalData.is_candidate_score_better(original_score_hash, candidate_score_hash)
-            individual.pretty_print
+            candidate.pretty_print
             EmpiricalData.print_comparison_between(original_score_hash, candidate_score_hash)
           end
         end
