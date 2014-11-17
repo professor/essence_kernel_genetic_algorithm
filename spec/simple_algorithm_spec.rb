@@ -12,4 +12,9 @@ describe SimpleAlgorithm do
   xit 'moves every checklist item one state earlier' do
     subject.systematically_move_checklists_one_state(:earlier)
   end
+
+  it 'moves every checklist item one state later' do
+    subject.repeatedly_move_best_checklists_one_state(:later)
+  end
+
 end
