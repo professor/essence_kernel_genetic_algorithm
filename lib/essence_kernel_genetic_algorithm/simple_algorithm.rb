@@ -11,6 +11,8 @@ class SimpleAlgorithm
     team_data = EmpiricalData.load_team_data
     original_score_hash = EmpiricalData.evaluate(original, team_data)
 
+    puts "alpha_index, state_index, checklist_index, description, #{EmpiricalData.asbolute_comparison_header(original_score_hash)}"
+
     #iterate through all checklists
     original.number_of_alphas.times do |alpha_index|
       from = {alpha: alpha_index}
@@ -24,16 +26,19 @@ class SimpleAlgorithm
           from = {alpha: alpha_index, state: state_index, checklist: checklist_index}
 
           candidate = Marshal.load(Marshal.dump(original))
+          checklist_description = candidate.lookup(from)['name']
 
           Operators.move_checklist_one_state_later(candidate, from) if (direction == :later)
           Operators.move_checklist_one_state_earlier(candidate, from) if (direction == :earlier)
 
           candidate_score_hash = EmpiricalData.evaluate(candidate, team_data)
 
-          if EmpiricalData.is_candidate_score_better(original_score_hash, candidate_score_hash)
-            candidate.pretty_print
-            EmpiricalData.print_comparison_between(original_score_hash, candidate_score_hash)
-          end
+          puts "#{alpha_index}, #{state_index}, #{checklist_index}, \"#{checklist_description}\", #{EmpiricalData.asbolute_comparison_between(original_score_hash, candidate_score_hash)}"
+
+          # if EmpiricalData.is_candidate_score_better(original_score_hash, candidate_score_hash)
+          #   candidate.pretty_print
+          #   EmpiricalData.print_raw_comparison_between(original_score_hash, candidate_score_hash)
+          # end
         end
       end
     end
