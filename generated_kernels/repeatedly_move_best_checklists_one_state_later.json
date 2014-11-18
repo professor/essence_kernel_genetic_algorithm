@@ -12,14 +12,6 @@
         "name": "Recognized",
         "checklists": [
           {
-            "id": 911,
-            "name": "Possible stakeholders groups are identified",
-            "original_alpha_name": "Stakeholders",
-            "original_alpha_color": "Green",
-            "original_state_name": "Recognized",
-            "original_state_order": 0
-          },
-          {
             "id": 912,
             "name": "Team agrees on relevant stakeholder groups to be represented",
             "original_alpha_name": "Stakeholders",
@@ -42,24 +34,8 @@
         "name": "Represented",
         "checklists": [
           {
-            "id": 914,
-            "name": "Stakeholder representatives are appointed",
-            "original_alpha_name": "Stakeholders",
-            "original_alpha_color": "Green",
-            "original_state_name": "Represented",
-            "original_state_order": 1
-          },
-          {
             "id": 915,
             "name": "Stakeholder representatives agree to take on responsibilities",
-            "original_alpha_name": "Stakeholders",
-            "original_alpha_color": "Green",
-            "original_state_name": "Represented",
-            "original_state_order": 1
-          },
-          {
-            "id": 916,
-            "name": "Stakeholders agree on collaboration approach",
             "original_alpha_name": "Stakeholders",
             "original_alpha_color": "Green",
             "original_state_name": "Represented",
@@ -80,6 +56,14 @@
             "original_alpha_color": "Green",
             "original_state_name": "Represented",
             "original_state_order": 1
+          },
+          {
+            "id": 911,
+            "name": "Possible stakeholders groups are identified",
+            "original_alpha_name": "Stakeholders",
+            "original_alpha_color": "Green",
+            "original_state_name": "Recognized",
+            "original_state_order": 0
           }
         ]
       },
@@ -96,20 +80,20 @@
             "original_state_order": 2
           },
           {
-            "id": 920,
-            "name": "Stakeholder representatives provide feedback & take part in decisions in timely way",
-            "original_alpha_name": "Stakeholders",
-            "original_alpha_color": "Green",
-            "original_state_name": "Involved",
-            "original_state_order": 2
-          },
-          {
             "id": 921,
             "name": "Stakeholder representatives promptly communicate to stakeholder group",
             "original_alpha_name": "Stakeholders",
             "original_alpha_color": "Green",
             "original_state_name": "Involved",
             "original_state_order": 2
+          },
+          {
+            "id": 914,
+            "name": "Stakeholder representatives are appointed",
+            "original_alpha_name": "Stakeholders",
+            "original_alpha_color": "Green",
+            "original_state_name": "Represented",
+            "original_state_order": 1
           }
         ]
       },
@@ -117,22 +101,6 @@
         "id": 254,
         "name": "In Agreement",
         "checklists": [
-          {
-            "id": 922,
-            "name": "Team values stakeholder representatives' input",
-            "original_alpha_name": "Stakeholders",
-            "original_alpha_color": "Green",
-            "original_state_name": "In Agreement",
-            "original_state_order": 3
-          },
-          {
-            "id": 923,
-            "name": "Stakeholder representatives agree with priorities",
-            "original_alpha_name": "Stakeholders",
-            "original_alpha_color": "Green",
-            "original_state_name": "In Agreement",
-            "original_state_order": 3
-          },
           {
             "id": 924,
             "name": "Stakeholder representatives agreed upon minimal expectations for deployment",
@@ -142,12 +110,20 @@
             "original_state_order": 3
           },
           {
-            "id": 925,
-            "name": "Stakeholder representatives value team's input",
+            "id": 916,
+            "name": "Stakeholders agree on collaboration approach",
             "original_alpha_name": "Stakeholders",
             "original_alpha_color": "Green",
-            "original_state_name": "In Agreement",
-            "original_state_order": 3
+            "original_state_name": "Represented",
+            "original_state_order": 1
+          },
+          {
+            "id": 920,
+            "name": "Stakeholder representatives provide feedback & take part in decisions in timely way",
+            "original_alpha_name": "Stakeholders",
+            "original_alpha_color": "Green",
+            "original_state_name": "Involved",
+            "original_state_order": 2
           }
         ]
       },
@@ -162,6 +138,22 @@
             "original_alpha_color": "Green",
             "original_state_name": "Satisfied for Deployment",
             "original_state_order": 4
+          },
+          {
+            "id": 925,
+            "name": "Stakeholder representatives value team's input",
+            "original_alpha_name": "Stakeholders",
+            "original_alpha_color": "Green",
+            "original_state_name": "In Agreement",
+            "original_state_order": 3
+          },
+          {
+            "id": 923,
+            "name": "Stakeholder representatives agree with priorities",
+            "original_alpha_name": "Stakeholders",
+            "original_alpha_color": "Green",
+            "original_state_name": "In Agreement",
+            "original_state_order": 3
           }
         ]
       },
@@ -176,6 +168,14 @@
             "original_alpha_color": "Green",
             "original_state_name": "Experimenting",
             "original_state_order": 5
+          },
+          {
+            "id": 922,
+            "name": "Team values stakeholder representatives' input",
+            "original_alpha_name": "Stakeholders",
+            "original_alpha_color": "Green",
+            "original_state_name": "In Agreement",
+            "original_state_order": 3
           }
         ]
       },
@@ -230,14 +230,6 @@
         "name": "Solution Needed",
         "checklists": [
           {
-            "id": 931,
-            "name": "Problem is clearly articulated",
-            "original_alpha_name": "Opportunity",
-            "original_alpha_color": "Green",
-            "original_state_name": "Solution Needed",
-            "original_state_order": 1
-          },
-          {
             "id": 932,
             "name": "Opportunity addresses problem and stakeholder needs",
             "original_alpha_name": "Opportunity",
@@ -268,22 +260,6 @@
             "original_state_order": 2
           },
           {
-            "id": 935,
-            "name": "Impact of solution on stakeholders understood",
-            "original_alpha_name": "Opportunity",
-            "original_alpha_color": "Green",
-            "original_state_name": "Value Established",
-            "original_state_order": 2
-          },
-          {
-            "id": 936,
-            "name": "Success criteria are clear",
-            "original_alpha_name": "Opportunity",
-            "original_alpha_color": "Green",
-            "original_state_name": "Value Established",
-            "original_state_order": 2
-          },
-          {
             "id": 937,
             "name": "Desired outcomes are clear",
             "original_alpha_name": "Opportunity",
@@ -298,14 +274,6 @@
         "name": "Viable",
         "checklists": [
           {
-            "id": 938,
-            "name": "Solution has been outlined",
-            "original_alpha_name": "Opportunity",
-            "original_alpha_color": "Green",
-            "original_state_name": "Viable",
-            "original_state_order": 3
-          },
-          {
             "id": 939,
             "name": "Solution is deployable within constraints",
             "original_alpha_name": "Opportunity",
@@ -314,12 +282,12 @@
             "original_state_order": 3
           },
           {
-            "id": 940,
-            "name": "Risks associated with solution are acceptable and manageable",
+            "id": 936,
+            "name": "Success criteria are clear",
             "original_alpha_name": "Opportunity",
             "original_alpha_color": "Green",
-            "original_state_name": "Viable",
-            "original_state_order": 3
+            "original_state_name": "Value Established",
+            "original_state_order": 2
           }
         ]
       },
@@ -336,20 +304,28 @@
             "original_state_order": 4
           },
           {
-            "id": 942,
-            "name": "A usable system is available",
-            "original_alpha_name": "Opportunity",
-            "original_alpha_color": "Green",
-            "original_state_name": "Addressed",
-            "original_state_order": 4
-          },
-          {
             "id": 943,
             "name": "Solution is worth deploying",
             "original_alpha_name": "Opportunity",
             "original_alpha_color": "Green",
             "original_state_name": "Addressed",
             "original_state_order": 4
+          },
+          {
+            "id": 938,
+            "name": "Solution has been outlined",
+            "original_alpha_name": "Opportunity",
+            "original_alpha_color": "Green",
+            "original_state_name": "Viable",
+            "original_state_order": 3
+          },
+          {
+            "id": 931,
+            "name": "Problem is clearly articulated",
+            "original_alpha_name": "Opportunity",
+            "original_alpha_color": "Green",
+            "original_state_name": "Solution Needed",
+            "original_state_order": 1
           }
         ]
       },
@@ -372,6 +348,30 @@
             "original_alpha_color": "Green",
             "original_state_name": "Benefit Accrued",
             "original_state_order": 5
+          },
+          {
+            "id": 942,
+            "name": "A usable system is available",
+            "original_alpha_name": "Opportunity",
+            "original_alpha_color": "Green",
+            "original_state_name": "Addressed",
+            "original_state_order": 4
+          },
+          {
+            "id": 940,
+            "name": "Risks associated with solution are acceptable and manageable",
+            "original_alpha_name": "Opportunity",
+            "original_alpha_color": "Green",
+            "original_state_name": "Viable",
+            "original_state_order": 3
+          },
+          {
+            "id": 935,
+            "name": "Impact of solution on stakeholders understood",
+            "original_alpha_name": "Opportunity",
+            "original_alpha_color": "Green",
+            "original_state_name": "Value Established",
+            "original_state_order": 2
           }
         ]
       }
@@ -412,30 +412,6 @@
         "name": "Bounded",
         "checklists": [
           {
-            "id": 948,
-            "name": "Purpose and extent of system are agreed",
-            "original_alpha_name": "Requirements",
-            "original_alpha_color": "Yellow",
-            "original_state_name": "Bounded",
-            "original_state_order": 1
-          },
-          {
-            "id": 949,
-            "name": "Success criteria are clear",
-            "original_alpha_name": "Requirements",
-            "original_alpha_color": "Yellow",
-            "original_state_name": "Bounded",
-            "original_state_order": 1
-          },
-          {
-            "id": 950,
-            "name": "Processes and tools for handling requirements are in place",
-            "original_alpha_name": "Requirements",
-            "original_alpha_color": "Yellow",
-            "original_state_name": "Bounded",
-            "original_state_order": 1
-          },
-          {
             "id": 951,
             "name": "Scope constraints are identified",
             "original_alpha_name": "Requirements",
@@ -458,22 +434,6 @@
         "name": "Coherent",
         "checklists": [
           {
-            "id": 953,
-            "name": "Requirements are captured and shared",
-            "original_alpha_name": "Requirements",
-            "original_alpha_color": "Yellow",
-            "original_state_name": "Coherent",
-            "original_state_order": 2
-          },
-          {
-            "id": 954,
-            "name": "Important usage scenarios are explained",
-            "original_alpha_name": "Requirements",
-            "original_alpha_color": "Yellow",
-            "original_state_name": "Coherent",
-            "original_state_order": 2
-          },
-          {
             "id": 955,
             "name": "Requirements are prioritized",
             "original_alpha_name": "Requirements",
@@ -490,20 +450,20 @@
             "original_state_order": 2
           },
           {
-            "id": 957,
-            "name": "Rationale is understood",
+            "id": 950,
+            "name": "Processes and tools for handling requirements are in place",
             "original_alpha_name": "Requirements",
             "original_alpha_color": "Yellow",
-            "original_state_name": "Coherent",
-            "original_state_order": 2
+            "original_state_name": "Bounded",
+            "original_state_order": 1
           },
           {
-            "id": 958,
-            "name": "Impact is understood",
+            "id": 949,
+            "name": "Success criteria are clear",
             "original_alpha_name": "Requirements",
             "original_alpha_color": "Yellow",
-            "original_state_name": "Coherent",
-            "original_state_order": 2
+            "original_state_name": "Bounded",
+            "original_state_order": 1
           }
         ]
       },
@@ -511,22 +471,6 @@
         "id": 271,
         "name": "Acceptable",
         "checklists": [
-          {
-            "id": 959,
-            "name": "Requirements are acceptable to stakeholders",
-            "original_alpha_name": "Requirements",
-            "original_alpha_color": "Yellow",
-            "original_state_name": "Acceptable",
-            "original_state_order": 3
-          },
-          {
-            "id": 960,
-            "name": "Rate of change is acceptable",
-            "original_alpha_name": "Requirements",
-            "original_alpha_color": "Yellow",
-            "original_state_name": "Acceptable",
-            "original_state_order": 3
-          },
           {
             "id": 961,
             "name": "Value is clear",
@@ -542,6 +486,22 @@
             "original_alpha_color": "Yellow",
             "original_state_name": "Acceptable",
             "original_state_order": 3
+          },
+          {
+            "id": 954,
+            "name": "Important usage scenarios are explained",
+            "original_alpha_name": "Requirements",
+            "original_alpha_color": "Yellow",
+            "original_state_name": "Coherent",
+            "original_state_order": 2
+          },
+          {
+            "id": 948,
+            "name": "Purpose and extent of system are agreed",
+            "original_alpha_name": "Requirements",
+            "original_alpha_color": "Yellow",
+            "original_state_name": "Bounded",
+            "original_state_order": 1
           }
         ]
       },
@@ -564,6 +524,30 @@
             "original_alpha_color": "Yellow",
             "original_state_name": "Addressed",
             "original_state_order": 4
+          },
+          {
+            "id": 960,
+            "name": "Rate of change is acceptable",
+            "original_alpha_name": "Requirements",
+            "original_alpha_color": "Yellow",
+            "original_state_name": "Acceptable",
+            "original_state_order": 3
+          },
+          {
+            "id": 957,
+            "name": "Rationale is understood",
+            "original_alpha_name": "Requirements",
+            "original_alpha_color": "Yellow",
+            "original_state_name": "Coherent",
+            "original_state_order": 2
+          },
+          {
+            "id": 958,
+            "name": "Impact is understood",
+            "original_alpha_name": "Requirements",
+            "original_alpha_color": "Yellow",
+            "original_state_name": "Coherent",
+            "original_state_order": 2
           }
         ]
       },
@@ -594,6 +578,22 @@
             "original_alpha_color": "Yellow",
             "original_state_name": "Fulfilled",
             "original_state_order": 5
+          },
+          {
+            "id": 953,
+            "name": "Requirements are captured and shared",
+            "original_alpha_name": "Requirements",
+            "original_alpha_color": "Yellow",
+            "original_state_name": "Coherent",
+            "original_state_order": 2
+          },
+          {
+            "id": 959,
+            "name": "Requirements are acceptable to stakeholders",
+            "original_alpha_name": "Requirements",
+            "original_alpha_color": "Yellow",
+            "original_state_name": "Acceptable",
+            "original_state_order": 3
           }
         ]
       }
@@ -611,46 +611,6 @@
         "id": 276,
         "name": "Initiated",
         "checklists": [
-          {
-            "id": 968,
-            "name": "Criteria for selecting architecture are agreed",
-            "original_alpha_name": "Software System",
-            "original_alpha_color": "Yellow",
-            "original_state_name": "Initiated",
-            "original_state_order": 0
-          },
-          {
-            "id": 969,
-            "name": "Platforms, technologies, languages are selected",
-            "original_alpha_name": "Software System",
-            "original_alpha_color": "Yellow",
-            "original_state_name": "Initiated",
-            "original_state_order": 0
-          },
-          {
-            "id": 970,
-            "name": "Selected architecture addresses key technical risks",
-            "original_alpha_name": "Software System",
-            "original_alpha_color": "Yellow",
-            "original_state_name": "Initiated",
-            "original_state_order": 0
-          },
-          {
-            "id": 971,
-            "name": "Buy, build, reuse decisions are made",
-            "original_alpha_name": "Software System",
-            "original_alpha_color": "Yellow",
-            "original_state_name": "Initiated",
-            "original_state_order": 0
-          },
-          {
-            "id": 972,
-            "name": "Stakeholders agree on necessary documentation",
-            "original_alpha_name": "Software System",
-            "original_alpha_color": "Yellow",
-            "original_state_name": "Initiated",
-            "original_state_order": 0
-          },
           {
             "id": 973,
             "name": "Stakeholders agree on support service levels",
@@ -674,28 +634,28 @@
         "name": "Demonstrable",
         "checklists": [
           {
-            "id": 975,
-            "name": "Key architecture characteristics are demonstrated",
-            "original_alpha_name": "Software System",
-            "original_alpha_color": "Yellow",
-            "original_state_name": "Demonstrable",
-            "original_state_order": 1
-          },
-          {
-            "id": 976,
-            "name": "Relevant stakeholders agree architecture is appropriate",
-            "original_alpha_name": "Software System",
-            "original_alpha_color": "Yellow",
-            "original_state_name": "Demonstrable",
-            "original_state_order": 1
-          },
-          {
             "id": 977,
             "name": "Critical interfaces and system configurations demonstrated",
             "original_alpha_name": "Software System",
             "original_alpha_color": "Yellow",
             "original_state_name": "Demonstrable",
             "original_state_order": 1
+          },
+          {
+            "id": 972,
+            "name": "Stakeholders agree on necessary documentation",
+            "original_alpha_name": "Software System",
+            "original_alpha_color": "Yellow",
+            "original_state_name": "Initiated",
+            "original_state_order": 0
+          },
+          {
+            "id": 968,
+            "name": "Criteria for selecting architecture are agreed",
+            "original_alpha_name": "Software System",
+            "original_alpha_color": "Yellow",
+            "original_state_name": "Initiated",
+            "original_state_order": 0
           }
         ]
       },
@@ -703,14 +663,6 @@
         "id": 278,
         "name": "Usable",
         "checklists": [
-          {
-            "id": 978,
-            "name": "Users can operate system",
-            "original_alpha_name": "Software System",
-            "original_alpha_color": "Yellow",
-            "original_state_name": "Usable",
-            "original_state_order": 2
-          },
           {
             "id": 979,
             "name": "System has desired quality and performance characteristics",
@@ -728,12 +680,20 @@
             "original_state_order": 2
           },
           {
-            "id": 981,
-            "name": "Defect levels are acceptable",
+            "id": 969,
+            "name": "Platforms, technologies, languages are selected",
             "original_alpha_name": "Software System",
             "original_alpha_color": "Yellow",
-            "original_state_name": "Usable",
-            "original_state_order": 2
+            "original_state_name": "Initiated",
+            "original_state_order": 0
+          },
+          {
+            "id": 970,
+            "name": "Selected architecture addresses key technical risks",
+            "original_alpha_name": "Software System",
+            "original_alpha_color": "Yellow",
+            "original_state_name": "Initiated",
+            "original_state_order": 0
           }
         ]
       },
@@ -756,6 +716,22 @@
             "original_alpha_color": "Yellow",
             "original_state_name": "Ready",
             "original_state_order": 3
+          },
+          {
+            "id": 971,
+            "name": "Buy, build, reuse decisions are made",
+            "original_alpha_name": "Software System",
+            "original_alpha_color": "Yellow",
+            "original_state_name": "Initiated",
+            "original_state_order": 0
+          },
+          {
+            "id": 975,
+            "name": "Key architecture characteristics are demonstrated",
+            "original_alpha_name": "Software System",
+            "original_alpha_color": "Yellow",
+            "original_state_name": "Demonstrable",
+            "original_state_order": 1
           }
         ]
       },
@@ -780,12 +756,20 @@
             "original_state_order": 4
           },
           {
-            "id": 986,
-            "name": "System is supported to agreed service levels",
+            "id": 976,
+            "name": "Relevant stakeholders agree architecture is appropriate",
             "original_alpha_name": "Software System",
             "original_alpha_color": "Yellow",
-            "original_state_name": "Operational",
-            "original_state_order": 4
+            "original_state_name": "Demonstrable",
+            "original_state_order": 1
+          },
+          {
+            "id": 981,
+            "name": "Defect levels are acceptable",
+            "original_alpha_name": "Software System",
+            "original_alpha_color": "Yellow",
+            "original_state_name": "Usable",
+            "original_state_order": 2
           }
         ]
       },
@@ -810,14 +794,6 @@
             "original_state_order": 5
           },
           {
-            "id": 989,
-            "name": "Issues and bugs are tracked and resolved",
-            "original_alpha_name": "Software System",
-            "original_alpha_color": "Yellow",
-            "original_state_name": "Maintained",
-            "original_state_order": 5
-          },
-          {
             "id": 990,
             "name": "Design is improved",
             "original_alpha_name": "Software System",
@@ -832,6 +808,22 @@
             "original_alpha_color": "Yellow",
             "original_state_name": "Maintained",
             "original_state_order": 5
+          },
+          {
+            "id": 986,
+            "name": "System is supported to agreed service levels",
+            "original_alpha_name": "Software System",
+            "original_alpha_color": "Yellow",
+            "original_state_name": "Operational",
+            "original_state_order": 4
+          },
+          {
+            "id": 978,
+            "name": "Users can operate system",
+            "original_alpha_name": "Software System",
+            "original_alpha_color": "Yellow",
+            "original_state_name": "Usable",
+            "original_state_order": 2
           }
         ]
       },
@@ -846,6 +838,14 @@
             "original_alpha_color": "Yellow",
             "original_state_name": "Retired",
             "original_state_order": 6
+          },
+          {
+            "id": 989,
+            "name": "Issues and bugs are tracked and resolved",
+            "original_alpha_name": "Software System",
+            "original_alpha_color": "Yellow",
+            "original_state_name": "Maintained",
+            "original_state_order": 5
           }
         ]
       }
@@ -863,38 +863,6 @@
         "id": 285,
         "name": "Seeded",
         "checklists": [
-          {
-            "id": 993,
-            "name": "Team's mission is clear",
-            "original_alpha_name": "Team",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Seeded",
-            "original_state_order": 0
-          },
-          {
-            "id": 994,
-            "name": "Team can grow to achieve opportunity",
-            "original_alpha_name": "Team",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Seeded",
-            "original_state_order": 0
-          },
-          {
-            "id": 995,
-            "name": "Required competencies are identifed",
-            "original_alpha_name": "Team",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Seeded",
-            "original_state_order": 0
-          },
-          {
-            "id": 996,
-            "name": "Target team size is determined",
-            "original_alpha_name": "Team",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Seeded",
-            "original_state_order": 0
-          },
           {
             "id": 997,
             "name": "Where and how the work is carried out are defined",
@@ -926,22 +894,6 @@
         "name": "Formed",
         "checklists": [
           {
-            "id": 1000,
-            "name": "Team has enough resources to start addressing opportunity",
-            "original_alpha_name": "Team",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Formed",
-            "original_state_order": 1
-          },
-          {
-            "id": 1001,
-            "name": "Team organization, responsibilities, and roles are understood",
-            "original_alpha_name": "Team",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Formed",
-            "original_state_order": 1
-          },
-          {
             "id": 1002,
             "name": "Members know how to perform their work",
             "original_alpha_name": "Team",
@@ -950,12 +902,28 @@
             "original_state_order": 1
           },
           {
-            "id": 1003,
-            "name": "External collaborators are identified",
+            "id": 994,
+            "name": "Team can grow to achieve opportunity",
             "original_alpha_name": "Team",
             "original_alpha_color": "Blue",
-            "original_state_name": "Formed",
-            "original_state_order": 1
+            "original_state_name": "Seeded",
+            "original_state_order": 0
+          },
+          {
+            "id": 995,
+            "name": "Required competencies are identifed",
+            "original_alpha_name": "Team",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Seeded",
+            "original_state_order": 0
+          },
+          {
+            "id": 996,
+            "name": "Target team size is determined",
+            "original_alpha_name": "Team",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Seeded",
+            "original_state_order": 0
           }
         ]
       },
@@ -964,12 +932,50 @@
         "name": "Collaborating",
         "checklists": [
           {
-            "id": 1004,
-            "name": "Members are working as one unit",
+            "id": 1007,
+            "name": "Team's objectives are aligned with personal objectives",
             "original_alpha_name": "Team",
             "original_alpha_color": "Blue",
             "original_state_name": "Collaborating",
             "original_state_order": 2
+          },
+          {
+            "id": 993,
+            "name": "Team's mission is clear",
+            "original_alpha_name": "Team",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Seeded",
+            "original_state_order": 0
+          },
+          {
+            "id": 1001,
+            "name": "Team organization, responsibilities, and roles are understood",
+            "original_alpha_name": "Team",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Formed",
+            "original_state_order": 1
+          }
+        ]
+      },
+      {
+        "id": 288,
+        "name": "Performing",
+        "checklists": [
+          {
+            "id": 1008,
+            "name": "Team consistently meets its commitments",
+            "original_alpha_name": "Team",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Performing",
+            "original_state_order": 3
+          },
+          {
+            "id": 1011,
+            "name": "Team produces high-quality output",
+            "original_alpha_name": "Team",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Performing",
+            "original_state_order": 3
           },
           {
             "id": 1005,
@@ -988,58 +994,12 @@
             "original_state_order": 2
           },
           {
-            "id": 1007,
-            "name": "Team's objectives are aligned with personal objectives",
+            "id": 1003,
+            "name": "External collaborators are identified",
             "original_alpha_name": "Team",
             "original_alpha_color": "Blue",
-            "original_state_name": "Collaborating",
-            "original_state_order": 2
-          }
-        ]
-      },
-      {
-        "id": 288,
-        "name": "Performing",
-        "checklists": [
-          {
-            "id": 1008,
-            "name": "Team consistently meets its commitments",
-            "original_alpha_name": "Team",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Performing",
-            "original_state_order": 3
-          },
-          {
-            "id": 1009,
-            "name": "Team adapts to change",
-            "original_alpha_name": "Team",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Performing",
-            "original_state_order": 3
-          },
-          {
-            "id": 1010,
-            "name": "Team overcomes challenges",
-            "original_alpha_name": "Team",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Performing",
-            "original_state_order": 3
-          },
-          {
-            "id": 1011,
-            "name": "Team produces high-quality output",
-            "original_alpha_name": "Team",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Performing",
-            "original_state_order": 3
-          },
-          {
-            "id": 1012,
-            "name": "Team strives to eliminate waste",
-            "original_alpha_name": "Team",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Performing",
-            "original_state_order": 3
+            "original_state_name": "Formed",
+            "original_state_order": 1
           }
         ]
       },
@@ -1054,6 +1014,46 @@
             "original_alpha_color": "Blue",
             "original_state_name": "Adjourned",
             "original_state_order": 4
+          },
+          {
+            "id": 1010,
+            "name": "Team overcomes challenges",
+            "original_alpha_name": "Team",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Performing",
+            "original_state_order": 3
+          },
+          {
+            "id": 1009,
+            "name": "Team adapts to change",
+            "original_alpha_name": "Team",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Performing",
+            "original_state_order": 3
+          },
+          {
+            "id": 1004,
+            "name": "Members are working as one unit",
+            "original_alpha_name": "Team",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Collaborating",
+            "original_state_order": 2
+          },
+          {
+            "id": 1012,
+            "name": "Team strives to eliminate waste",
+            "original_alpha_name": "Team",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Performing",
+            "original_state_order": 3
+          },
+          {
+            "id": 1000,
+            "name": "Team has enough resources to start addressing opportunity",
+            "original_alpha_name": "Team",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Formed",
+            "original_state_order": 1
           }
         ]
       }
@@ -1071,14 +1071,6 @@
         "id": 292,
         "name": "Values and Principles Established",
         "checklists": [
-          {
-            "id": 1014,
-            "name": "Work context is understood",
-            "original_alpha_name": "Way-of-Working",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Values and Principles Established",
-            "original_state_order": 0
-          },
           {
             "id": 1015,
             "name": "Values and principles are identified",
@@ -1110,12 +1102,50 @@
         "name": "Practices & Tools Selected",
         "checklists": [
           {
-            "id": 1018,
-            "name": "Constraints about practices and tools are known",
+            "id": 1021,
+            "name": "A transition plan is defined to adopt new practices and tools",
             "original_alpha_name": "Way-of-Working",
             "original_alpha_color": "Blue",
             "original_state_name": "Practices & Tools Selected",
             "original_state_order": 1
+          },
+          {
+            "id": 1022,
+            "name": "Stakeholders accept external-facing practices and tools",
+            "original_alpha_name": "Way-of-Working",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Practices & Tools Selected",
+            "original_state_order": 1
+          },
+          {
+            "id": 1014,
+            "name": "Work context is understood",
+            "original_alpha_name": "Way-of-Working",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Values and Principles Established",
+            "original_state_order": 0
+          }
+        ]
+      },
+      {
+        "id": 294,
+        "name": "In Use",
+        "checklists": [
+          {
+            "id": 1026,
+            "name": "Team is adapting practices and tools ",
+            "original_alpha_name": "Way-of-Working",
+            "original_alpha_color": "Blue",
+            "original_state_name": "In Use",
+            "original_state_order": 2
+          },
+          {
+            "id": 1023,
+            "name": "Key practices and tools are ready",
+            "original_alpha_name": "Way-of-Working",
+            "original_alpha_color": "Blue",
+            "original_state_name": "In Use",
+            "original_state_order": 2
           },
           {
             "id": 1019,
@@ -1132,60 +1162,6 @@
             "original_alpha_color": "Blue",
             "original_state_name": "Practices & Tools Selected",
             "original_state_order": 1
-          },
-          {
-            "id": 1021,
-            "name": "A transition plan is defined to adopt new practices and tools",
-            "original_alpha_name": "Way-of-Working",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Practices & Tools Selected",
-            "original_state_order": 1
-          },
-          {
-            "id": 1022,
-            "name": "Stakeholders accept external-facing practices and tools",
-            "original_alpha_name": "Way-of-Working",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Practices & Tools Selected",
-            "original_state_order": 1
-          }
-        ]
-      },
-      {
-        "id": 294,
-        "name": "In Use",
-        "checklists": [
-          {
-            "id": 1024,
-            "name": "Team is adopting practices, tools, principles, and values ",
-            "original_alpha_name": "Way-of-Working",
-            "original_alpha_color": "Blue",
-            "original_state_name": "In Use",
-            "original_state_order": 2
-          },
-          {
-            "id": 1025,
-            "name": "Team reflects on practices, tools, principles, and values ",
-            "original_alpha_name": "Way-of-Working",
-            "original_alpha_color": "Blue",
-            "original_state_name": "In Use",
-            "original_state_order": 2
-          },
-          {
-            "id": 1026,
-            "name": "Team is adapting practices and tools ",
-            "original_alpha_name": "Way-of-Working",
-            "original_alpha_color": "Blue",
-            "original_state_name": "In Use",
-            "original_state_order": 2
-          },
-          {
-            "id": 1023,
-            "name": "Key practices and tools are ready",
-            "original_alpha_name": "Way-of-Working",
-            "original_alpha_color": "Blue",
-            "original_state_name": "In Use",
-            "original_state_order": 2
           }
         ]
       },
@@ -1224,6 +1200,30 @@
             "original_alpha_color": "Blue",
             "original_state_name": "Working well",
             "original_state_order": 3
+          },
+          {
+            "id": 1024,
+            "name": "Team is adopting practices, tools, principles, and values ",
+            "original_alpha_name": "Way-of-Working",
+            "original_alpha_color": "Blue",
+            "original_state_name": "In Use",
+            "original_state_order": 2
+          },
+          {
+            "id": 1018,
+            "name": "Constraints about practices and tools are known",
+            "original_alpha_name": "Way-of-Working",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Practices & Tools Selected",
+            "original_state_order": 1
+          },
+          {
+            "id": 1025,
+            "name": "Team reflects on practices, tools, principles, and values ",
+            "original_alpha_name": "Way-of-Working",
+            "original_alpha_color": "Blue",
+            "original_state_name": "In Use",
+            "original_state_order": 2
           }
         ]
       }
@@ -1241,22 +1241,6 @@
         "id": 298,
         "name": "Initiated",
         "checklists": [
-          {
-            "id": 1031,
-            "name": "Work initiator is known",
-            "original_alpha_name": "Work",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Initiated",
-            "original_state_order": 0
-          },
-          {
-            "id": 1032,
-            "name": "Work constraints are known",
-            "original_alpha_name": "Work",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Initiated",
-            "original_state_order": 0
-          },
           {
             "id": 1033,
             "name": "Funding model is clear",
@@ -1280,56 +1264,8 @@
         "name": "Prepared",
         "checklists": [
           {
-            "id": 1035,
-            "name": "Cost and effort are estimated",
-            "original_alpha_name": "Work",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Prepared",
-            "original_state_order": 1
-          },
-          {
-            "id": 1036,
-            "name": "Resources to start work are in place",
-            "original_alpha_name": "Work",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Prepared",
-            "original_state_order": 1
-          },
-          {
-            "id": 1037,
-            "name": "Acceptance criteria are defined",
-            "original_alpha_name": "Work",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Prepared",
-            "original_state_order": 1
-          },
-          {
-            "id": 1038,
-            "name": "Oversight is in place",
-            "original_alpha_name": "Work",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Prepared",
-            "original_state_order": 1
-          },
-          {
-            "id": 1039,
-            "name": "Rules and regulations are understood",
-            "original_alpha_name": "Work",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Prepared",
-            "original_state_order": 1
-          },
-          {
             "id": 1040,
             "name": "Risk exposure is understood",
-            "original_alpha_name": "Work",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Prepared",
-            "original_state_order": 1
-          },
-          {
-            "id": 1041,
-            "name": "Commitment is made",
             "original_alpha_name": "Work",
             "original_alpha_color": "Blue",
             "original_state_name": "Prepared",
@@ -1342,6 +1278,14 @@
             "original_alpha_color": "Blue",
             "original_state_name": "Prepared",
             "original_state_order": 1
+          },
+          {
+            "id": 1032,
+            "name": "Work constraints are known",
+            "original_alpha_name": "Work",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Initiated",
+            "original_state_order": 0
           }
         ]
       },
@@ -1349,14 +1293,6 @@
         "id": 300,
         "name": "Started",
         "checklists": [
-          {
-            "id": 1043,
-            "name": "Work is broken down into actionable items with clear definitions of done",
-            "original_alpha_name": "Work",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Started",
-            "original_state_order": 2
-          },
           {
             "id": 1044,
             "name": "Team members are progressing on work items",
@@ -1366,12 +1302,20 @@
             "original_state_order": 2
           },
           {
-            "id": 1045,
-            "name": "Progress metrics are identified",
+            "id": 1035,
+            "name": "Cost and effort are estimated",
             "original_alpha_name": "Work",
             "original_alpha_color": "Blue",
-            "original_state_name": "Started",
-            "original_state_order": 2
+            "original_state_name": "Prepared",
+            "original_state_order": 1
+          },
+          {
+            "id": 1031,
+            "name": "Work initiator is known",
+            "original_alpha_name": "Work",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Initiated",
+            "original_state_order": 0
           }
         ]
       },
@@ -1379,38 +1323,6 @@
         "id": 301,
         "name": "Under Control",
         "checklists": [
-          {
-            "id": 1046,
-            "name": "Work items are being completed at a steady pace",
-            "original_alpha_name": "Work",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Under Control",
-            "original_state_order": 3
-          },
-          {
-            "id": 1047,
-            "name": "Unplanned work is manageable",
-            "original_alpha_name": "Work",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Under Control",
-            "original_state_order": 3
-          },
-          {
-            "id": 1048,
-            "name": "Rework is manageable",
-            "original_alpha_name": "Work",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Under Control",
-            "original_state_order": 3
-          },
-          {
-            "id": 1049,
-            "name": "Progress metrics are tracked and acted upon",
-            "original_alpha_name": "Work",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Under Control",
-            "original_state_order": 3
-          },
           {
             "id": 1050,
             "name": "Risks are managed",
@@ -1426,6 +1338,30 @@
             "original_alpha_color": "Blue",
             "original_state_name": "Under Control",
             "original_state_order": 3
+          },
+          {
+            "id": 1045,
+            "name": "Progress metrics are identified",
+            "original_alpha_name": "Work",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Started",
+            "original_state_order": 2
+          },
+          {
+            "id": 1036,
+            "name": "Resources to start work are in place",
+            "original_alpha_name": "Work",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Prepared",
+            "original_state_order": 1
+          },
+          {
+            "id": 1041,
+            "name": "Commitment is made",
+            "original_alpha_name": "Work",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Prepared",
+            "original_state_order": 1
           }
         ]
       },
@@ -1448,6 +1384,38 @@
             "original_alpha_color": "Blue",
             "original_state_name": "Concluded",
             "original_state_order": 4
+          },
+          {
+            "id": 1048,
+            "name": "Rework is manageable",
+            "original_alpha_name": "Work",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Under Control",
+            "original_state_order": 3
+          },
+          {
+            "id": 1046,
+            "name": "Work items are being completed at a steady pace",
+            "original_alpha_name": "Work",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Under Control",
+            "original_state_order": 3
+          },
+          {
+            "id": 1039,
+            "name": "Rules and regulations are understood",
+            "original_alpha_name": "Work",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Prepared",
+            "original_state_order": 1
+          },
+          {
+            "id": 1037,
+            "name": "Acceptance criteria are defined",
+            "original_alpha_name": "Work",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Prepared",
+            "original_state_order": 1
           }
         ]
       },
@@ -1486,6 +1454,38 @@
             "original_alpha_color": "Blue",
             "original_state_name": "Closed",
             "original_state_order": 5
+          },
+          {
+            "id": 1047,
+            "name": "Unplanned work is manageable",
+            "original_alpha_name": "Work",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Under Control",
+            "original_state_order": 3
+          },
+          {
+            "id": 1038,
+            "name": "Oversight is in place",
+            "original_alpha_name": "Work",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Prepared",
+            "original_state_order": 1
+          },
+          {
+            "id": 1043,
+            "name": "Work is broken down into actionable items with clear definitions of done",
+            "original_alpha_name": "Work",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Started",
+            "original_state_order": 2
+          },
+          {
+            "id": 1049,
+            "name": "Progress metrics are tracked and acted upon",
+            "original_alpha_name": "Work",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Under Control",
+            "original_state_order": 3
           }
         ]
       }
