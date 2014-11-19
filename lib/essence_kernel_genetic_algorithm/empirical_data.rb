@@ -52,12 +52,5 @@ class EmpiricalData
     return original_score_hash[:total] < candidate_score_hash[:total]
   end
 end
-#
-# kernel_json_string = File.read(File.expand_path('../../../spec/fixtures/CMU_1.1.json', __FILE__))
-# individual = Individual.from_json_string(kernel_json_string)
-#
-# team_data = EmpiricalData.load_team_data
-# score_hash = EmpiricalData.evaluate(individual, team_data)
-# puts score_hash[:total]
-#
+
 
