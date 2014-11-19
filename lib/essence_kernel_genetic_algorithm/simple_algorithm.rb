@@ -45,7 +45,7 @@ class SimpleAlgorithm
     end
   end
 
-  def find_best_checklist(starting_individual, team_data, direction)
+  def find_best_checklist(starting_individual, team_data)
     original_score_hash = EmpiricalData.evaluate(starting_individual, team_data)
 
     best_score_hash = EmpiricalData.evaluate(starting_individual, team_data)
@@ -106,25 +106,23 @@ class SimpleAlgorithm
     [best_individual, best_checklist, best_checklist_location, best_score_hash, direction]
   end
 
-  def repeatedly_move_best_checklists_one_state(direction)
-    kernel_json_string = File.read(File.expand_path('../../../spec/fixtures/CMU_1.1.json', __FILE__))
-    original = Individual.from_json_string(kernel_json_string)
-
-    team_data = EmpiricalData.load_team_data
+  def repeatedly_move_best_checklists_one_state(original, team_data, filename)
     original_score_hash = EmpiricalData.evaluate(original, team_data)
 
     candidate = original
     previous_score_hash = original_score_hash
     candidate.pretty_print
     Kernel.loop do
-      (candidate, moved_checklist, moved_checklist_location, candidate_score_hash, direction) = find_best_checklist(candidate, team_data, direction)
-      puts "#{direction.to_s}, #{moved_checklist[:id]}, \"#{moved_checklist[:description]}\", #{EmpiricalData.asbolute_comparison_between(original_score_hash, candidate_score_hash)}"
+      (candidate, moved_checklist, moved_checklist_location, candidate_score_hash, direction) = find_best_checklist(candidate, team_data)
+      if moved_checklist != nil
+        puts "#{direction.to_s}, #{moved_checklist[:id]}, \"#{moved_checklist[:description]}\", #{EmpiricalData.asbolute_comparison_between(original_score_hash, candidate_score_hash)}"
+      end
 
       break if(previous_score_hash[:total] == candidate_score_hash[:total])
       previous_score_hash = candidate_score_hash
 
-      File.write(File.expand_path("../../../generated_kernels/repeatedly_move_best_checklists_one_state_both.json", __FILE__), JSON.pretty_generate(candidate.alphas))
-      File.open(File.expand_path("../../../generated_kernels/repeatedly_move_best_checklists_one_state_both.rb", __FILE__), 'w') do |file|
+      File.write(File.expand_path("../../../generated_kernels/#{filename}.json", __FILE__), JSON.pretty_generate(candidate.alphas))
+      File.open(File.expand_path("../../../generated_kernels/#{filename}.rb", __FILE__), 'w') do |file|
         PP.pp(candidate.alphas, file)
       end
     end
