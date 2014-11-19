@@ -1,0 +1,26 @@
+{
+  "id": -1,
+  "name": "Test Data",
+  "alphas": [
+    {
+      "id": 42,
+      "name": "Work",
+      "color": "Blue",
+      "concern": "Endeavor",
+      "definition": "Activity involving mental or physical effort done in order to achieve a result.",
+      "description": "In the context of software engineering, work is everything that the team does to meet the goals of producing a software system matching the requirement and addressing the opportunity presented by the stakeholders. The work is guided by the practices that make up the team’s way-of-working.",
+      "states": [
+        {
+          "id": 298,
+          "name": "Initiated",
+          "checklists": [
+            {
+              "id": 1,
+              "name": "Importance of work is clear"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
