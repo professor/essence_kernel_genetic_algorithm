@@ -1,3 +1,5 @@
+require 'JSON'
+
 class Individual
 
   attr_accessor :alphas

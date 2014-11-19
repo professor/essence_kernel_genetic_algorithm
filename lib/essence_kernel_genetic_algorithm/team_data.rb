@@ -1,19 +1,14 @@
 class TeamData
 
-
-
-  def initialize
-    @team_data = {}
+  def initialize(json)
+    @array_of_hashes = json
   end
 
-  def add_team(id, data)
-    @team_data[id] = data
+  def json
+    @array_of_hashes
   end
 
-  def data
-    @team_data
+  def contains?(checklist_id)
+    @array_of_hashes.first.keys.include?(checklist_id.to_s)  #Todo fix json generator to not use strings
   end
-
-
-
 end

@@ -1,7 +1,7 @@
 require_relative './individual.rb'
 require_relative './operators.rb'
 require_relative './empirical_data.rb'
-require_relative './team_data.rb'
+require_relative './team_data_collection.rb'
 require_relative './fitness_functions/partial_ordering.rb'
 
 require 'pp'
@@ -48,10 +48,10 @@ class SimpleAlgorithm
     end
   end
 
-  def find_best_checklist(starting_individual, team_data)
-    original_score_hash = PartialOrdering.evaluate(starting_individual, team_data)
+  def find_best_checklist(starting_individual, team_data_collection)
+    original_score_hash = PartialOrdering.evaluate(starting_individual, team_data_collection)
 
-    best_score_hash = PartialOrdering.evaluate(starting_individual, team_data)
+    best_score_hash = PartialOrdering.evaluate(starting_individual, team_data_collection)
     best_checklist_location = nil
     best_checklist = nil
     direction = nil
@@ -73,11 +73,11 @@ class SimpleAlgorithm
 
           candidate_later = Marshal.load(Marshal.dump(starting_individual))
           Operators.move_checklist_one_state_later(candidate_later, from)
-          candidate_later_score_hash = PartialOrdering.evaluate(candidate_later, team_data)
+          candidate_later_score_hash = PartialOrdering.evaluate(candidate_later, team_data_collection)
 
           candidate_earlier = Marshal.load(Marshal.dump(starting_individual))
           Operators.move_checklist_one_state_earlier(candidate_earlier, from)
-          candidate_earlier_score_hash = PartialOrdering.evaluate(candidate_earlier, team_data)
+          candidate_earlier_score_hash = PartialOrdering.evaluate(candidate_earlier, team_data_collection)
 
           # puts "#{candidate_later_score_hash[:total]} vs #{original_score_hash[:total]} vs #{candidate_earlier_score_hash[:total]}"
 

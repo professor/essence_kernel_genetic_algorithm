@@ -1,13 +1,15 @@
 require_relative './individual.rb'
+require_relative './team_data_collection.rb'
 require_relative './team_data.rb'
 require 'JSON'
 class EmpiricalData
 
   def self.load_team_data(team_ids = [21, 26, 108, 121, 124, 143, 148])
-    team_data = TeamData.new
+    team_data = TeamDataCollection.new
     team_ids.each do |team_id|
       team_json_string = File.read(File.expand_path("../../../lib/generated_json/team_#{team_id}_deltas.json", __FILE__))
-      team_data.add_team(team_id, JSON.parse(team_json_string))
+      team = TeamData.new(JSON.parse(team_json_string))
+      team_data.add_team(team_id, team)
     end
     team_data
   end
