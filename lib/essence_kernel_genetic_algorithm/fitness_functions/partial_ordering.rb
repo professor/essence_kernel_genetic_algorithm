@@ -17,7 +17,7 @@ class PartialOrdering
   def self.evaluate(individual, team_data)
     score_hash = {}
     total_score = 0
-    team_data.each do |id, team_json|
+    team_data.data.each do |id, team_json|
       score_for_team = 0
       team_json.each_with_index do |meeting, meeting_index|
         meeting.keys.each do |checklist_id|
