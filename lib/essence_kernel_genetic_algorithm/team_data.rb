@@ -20,8 +20,20 @@ class TeamData
 
   def before?(checklist_id, second_checklist_id)
     build_lookup if @lookup == nil
-    return false if @lookup[checklist_id] == nil or @lookup[second_checklist_id] == nil
-    @lookup[checklist_id] < @lookup[second_checklist_id]
+
+    if checklist_id.is_a?(Array)
+      return false if @lookup[second_checklist_id] == nil
+      return true if checklist_id == []
+      #todo: refactor with collect_with_object?
+      checklist_id.each do |id|
+        return false if @lookup[id] == nil
+        return false if @lookup[id] >= @lookup[second_checklist_id]
+      end
+      return true
+    else
+      return false if @lookup[checklist_id] == nil or @lookup[second_checklist_id] == nil
+      @lookup[checklist_id] < @lookup[second_checklist_id]
+    end
   end
 
   private
