@@ -119,7 +119,7 @@ describe Individual do
   end
 
   context '#before' do
-    let(:json) {
+    let(:meetings) {
       {alphas:
         [{states: [{checklists: [{id: 'alpha1_state1a'}, {id: 'alpha1_state1b'}]},
           {checklists: [{id: 'alpha1_state2a'}, {id: 'alpha1_state2b'}]}]},
@@ -128,7 +128,7 @@ describe Individual do
         ]
       }
     }
-    let(:simple) { Individual.from_json_string(json.to_json) }
+    let(:simple) { Individual.from_json_string(meetings.to_json) }
 
     it 'two checklist in the same state are not before each other' do
       expect(individual.before(911, 912)).to eq false
