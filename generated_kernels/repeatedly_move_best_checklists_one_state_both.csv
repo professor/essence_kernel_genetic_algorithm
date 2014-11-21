@@ -1,0 +1,167 @@
+**-----------------------------------------------------------------------------
+| Stakeholders    |  3 |  5 |  3 |  4 |  1 |  1 |  1 |
+| Opportunity     |  2 |  3 |  4 |  3 |  3 |  2 |
+| Requirements    |  2 |  5 |  6 |  4 |  2 |  3 |
+| Software System |  7 |  3 |  4 |  2 |  3 |  5 |  1 |
+| Team            |  7 |  4 |  4 |  5 |  1 |
+| Way-of-Working  |  4 |  5 |  4 |  4 |
+| Work            |  4 |  8 |  3 |  6 |  2 |  4 |
+-----------------------------------------------------------------------------
+later, 1038, "Oversight is in place", 56, 42, 21, 24, 45, 8, 7,  203 
+later, 972, "Stakeholders agree on necessary documentation", 82, 107, 56, 42, 95, 8, 7,  397 
+later, 993, "Team's mission is clear", 124, 163, 70, 54, 115, 10, 8,  544 
+later, 953, "Requirements are captured and shared", 133, 213, 85, 82, 125, 12, 8,  658 
+later, 1018, "Constraints about practices and tools are known", 185, 239, 92, 106, 125, 12, 12,  771 
+earlier, 916, "Stakeholders agree on collaboration approach", 211, 278, 99, 120, 145, 12, 12,  877 
+later, 969, "Platforms, technologies, languages are selected", 211, 317, 120, 127, 175, 18, 15,  983 
+later, 1047, "Unplanned work is manageable", 227, 347, 132, 142, 193, 28, 15,  1084 
+later, 922, "Team values stakeholder representatives' input", 251, 373, 146, 149, 213, 34, 15,  1181 
+later, 959, "Requirements are acceptable to stakeholders", 259, 397, 156, 156, 253, 42, 15,  1278 
+later, 1039, "Rules and regulations are understood", 287, 411, 163, 168, 280, 46, 20,  1375 
+later, 1010, "Team overcomes challenges", 297, 431, 191, 180, 298, 54, 20,  1471 
+later, 1004, "Members are working as one unit", 321, 473, 184, 186, 328, 52, 20,  1564 
+later, 1024, "Team is adopting practices, tools, principles, and values ", 332, 499, 184, 201, 364, 52, 20,  1652 
+earlier, 951, "Scope constraints are identified", 356, 507, 189, 208, 384, 56, 22,  1722 
+later, 957, "Rationale is understood", 364, 537, 199, 229, 384, 56, 23,  1792 
+later, 1003, "External collaborators are identified", 392, 550, 206, 235, 394, 58, 27,  1862 
+later, 994, "Team can grow to achieve opportunity", 420, 578, 213, 241, 404, 58, 27,  1941 
+earlier, 1048, "Rework is manageable", 434, 602, 217, 251, 416, 56, 27,  2003 
+later, 1038, "Oversight is in place", 448, 616, 224, 269, 425, 58, 28,  2068 
+later, 953, "Requirements are captured and shared", 457, 626, 229, 269, 455, 64, 28,  2128 
+later, 935, "Impact of solution on stakeholders understood", 470, 639, 236, 269, 475, 66, 29,  2184 
+later, 938, "Solution has been outlined", 477, 655, 246, 283, 485, 68, 31,  2245 
+later, 1009, "Team adapts to change", 489, 665, 267, 289, 485, 74, 31,  2300 
+later, 976, "Relevant stakeholders agree architecture is appropriate", 503, 665, 273, 294, 505, 76, 31,  2347 
+later, 971, "Buy, build, reuse decisions are made", 503, 678, 280, 300, 525, 80, 32,  2398 
+later, 971, "Buy, build, reuse decisions are made", 503, 704, 294, 306, 535, 80, 33,  2455 
+later, 1036, "Resources to start work are in place", 517, 704, 299, 312, 553, 80, 37,  2502 
+later, 1043, "Work is broken down into actionable items with clear definitions of done", 517, 720, 309, 324, 569, 80, 37,  2556 
+later, 1005, "Communication is open and professional", 529, 734, 302, 330, 589, 78, 37,  2599 
+later, 1000, "Team has enough resources to start addressing opportunity", 543, 748, 309, 336, 599, 78, 39,  2652 
+later, 1004, "Members are working as one unit", 543, 762, 323, 336, 609, 82, 39,  2694 
+later, 1000, "Team has enough resources to start addressing opportunity", 557, 776, 316, 342, 629, 80, 40,  2740 
+later, 1019, "Practices and tools are identified to address team's needs", 583, 789, 316, 354, 620, 78, 42,  2782 
+later, 1018, "Constraints about practices and tools are known", 596, 802, 309, 360, 647, 76, 43,  2833 
+earlier, 1027, "Team naturally applies practices and tools", 601, 817, 316, 364, 665, 78, 43,  2884 
+later, 1014, "Work context is understood", 615, 845, 316, 364, 665, 78, 42,  2925 
+later, 914, "Stakeholder representatives are appointed", 654, 845, 316, 364, 665, 76, 44,  2964 
+later, 911, "Possible stakeholders groups are identified", 654, 859, 316, 372, 676, 74, 45,  2996 
+later, 914, "Stakeholder representatives are appointed", 654, 872, 323, 372, 687, 74, 45,  3027 
+later, 995, "Required competencies are identifed", 668, 886, 323, 372, 687, 76, 46,  3058 
+later, 993, "Team's mission is clear", 682, 900, 330, 378, 697, 76, 48,  3111 
+later, 925, "Stakeholder representatives value team's input", 682, 913, 337, 384, 697, 80, 48,  3141 
+later, 922, "Team values stakeholder representatives' input", 694, 926, 344, 384, 707, 82, 48,  3185 
+later, 978, "Users can operate system", 694, 933, 350, 393, 711, 86, 48,  3215 
+later, 1049, "Progress metrics are tracked and acted upon", 701, 945, 352, 393, 711, 94, 48,  3244 
+earlier, 956, "There are no conflicting requirements", 709, 965, 362, 393, 701, 92, 48,  3270 
+later, 950, "Processes and tools for handling requirements are in place", 720, 978, 368, 393, 711, 94, 50,  3314 
+later, 931, "Problem is clearly articulated", 720, 1006, 375, 393, 701, 94, 49,  3338 
+later, 931, "Problem is clearly articulated", 748, 1006, 375, 393, 721, 96, 50,  3389 
+later, 959, "Requirements are acceptable to stakeholders", 748, 1006, 380, 400, 731, 98, 50,  3413 
+later, 961, "Value is clear", 756, 1022, 383, 400, 751, 102, 50,  3464 
+later, 954, "Important usage scenarios are explained", 756, 1032, 383, 414, 751, 102, 50,  3488 
+earlier, 942, "A usable system is available", 762, 1038, 387, 416, 755, 102, 50,  3510 
+later, 954, "Important usage scenarios are explained", 762, 1038, 392, 416, 765, 104, 50,  3527 
+later, 953, "Requirements are captured and shared", 771, 1048, 392, 416, 775, 106, 50,  3558 
+earlier, 980, "Functionality is tested and accepted", 776, 1048, 396, 419, 779, 107, 50,  3575 
+later, 1031, "Work initiator is known", 790, 1062, 403, 407, 779, 103, 48,  3592 
+earlier, 1037, "Acceptance criteria are defined", 802, 1071, 413, 419, 779, 107, 50,  3641 
+later, 1041, "Commitment is made", 802, 1085, 420, 419, 779, 105, 52,  3662 
+later, 1039, "Rules and regulations are understood", 816, 1085, 420, 425, 788, 105, 53,  3692 
+later, 1038, "Oversight is in place", 830, 1099, 427, 443, 797, 111, 54,  3761 
+earlier, 1020, "Practices and tools are consistent with values and principles", 830, 1112, 427, 443, 797, 111, 55,  3775 
+earlier, 1025, "Team reflects on practices, tools, principles, and values ", 830, 1121, 427, 453, 797, 113, 55,  3796 
+earlier, 1029, "Team continues to tune practices and tools", 830, 1126, 427, 456, 803, 113, 55,  3810 
+earlier, 1054, "Any housekeeping tasks are completed", 832, 1132, 428, 457, 806, 114, 55,  3824 
+earlier, 1027, "Team naturally applies practices and tools", 832, 1137, 428, 457, 812, 114, 55,  3835 
+later, 976, "Relevant stakeholders agree architecture is appropriate", 832, 1137, 428, 457, 822, 114, 55,  3845 
+earlier, 1011, "Team produces high-quality output", 832, 1147, 428, 457, 822, 114, 55,  3855 
+later, 1006, "Members are focused on opportunity", 832, 1147, 428, 457, 832, 114, 55,  3865 
+later, 1000, "Team has enough resources to start addressing opportunity", 832, 1161, 435, 457, 842, 116, 55,  3898 
+later, 1047, "Unplanned work is manageable", 832, 1167, 435, 457, 842, 120, 55,  3908 
+later, 1050, "Risks are managed", 840, 1173, 439, 462, 848, 124, 55,  3941 
+later, 940, "Risks associated with solution are acceptable and manageable", 840, 1173, 439, 462, 856, 123, 56,  3949 
+later, 940, "Risks associated with solution are acceptable and manageable", 840, 1181, 444, 462, 856, 125, 57,  3965 
+earlier, 982, "Agreed documentation is available", 841, 1186, 445, 463, 856, 125, 57,  3973 
+later, 935, "Impact of solution on stakeholders understood", 841, 1186, 452, 463, 856, 125, 57,  3980 
+later, 935, "Impact of solution on stakeholders understood", 841, 1186, 452, 470, 866, 127, 57,  3999 
+later, 936, "Success criteria are clear", 841, 1186, 452, 470, 876, 127, 58,  4010 
+later, 931, "Problem is clearly articulated", 855, 1186, 452, 470, 876, 127, 58,  4024 
+later, 949, "Success criteria are clear", 867, 1186, 447, 470, 876, 127, 58,  4031 
+later, 950, "Processes and tools for handling requirements are in place", 867, 1186, 447, 477, 876, 127, 59,  4039 
+later, 950, "Processes and tools for handling requirements are in place", 867, 1186, 447, 477, 886, 129, 60,  4052 
+later, 946, "List of high-level requirements captures system purpose", 880, 1199, 447, 470, 876, 127, 60,  4059 
+earlier, 952, "Assumptions made while defining requirements are captured", 880, 1209, 447, 477, 886, 129, 60,  4088 
+later, 946, "List of high-level requirements captures system purpose", 880, 1222, 454, 477, 876, 127, 59,  4095 
+earlier, 955, "Requirements are prioritized", 880, 1222, 459, 477, 886, 129, 59,  4112 
+earlier, 966, "Implemented requirements satisfy the need for a new system", 880, 1227, 457, 479, 888, 129, 59,  4119 
+earlier, 966, "Implemented requirements satisfy the need for a new system", 884, 1227, 461, 479, 890, 131, 59,  4131 
+later, 975, "Key architecture characteristics are demonstrated", 891, 1227, 461, 479, 890, 131, 59,  4138 
+later, 970, "Selected architecture addresses key technical risks", 891, 1227, 461, 479, 900, 133, 59,  4150 
+later, 969, "Platforms, technologies, languages are selected", 891, 1240, 468, 479, 910, 135, 59,  4182 
+later, 971, "Buy, build, reuse decisions are made", 891, 1253, 475, 479, 910, 133, 60,  4201 
+later, 976, "Relevant stakeholders agree architecture is appropriate", 891, 1253, 475, 479, 920, 137, 60,  4215 
+later, 1014, "Work context is understood", 891, 1253, 475, 485, 920, 137, 61,  4222 
+later, 1015, "Values and principles are identified", 891, 1267, 475, 491, 920, 135, 61,  4240 
+earlier, 1052, "All work items are completed", 892, 1267, 477, 493, 920, 137, 61,  4247 
+later, 915, "Stakeholder representatives agree to take on responsibilities", 918, 1254, 477, 486, 920, 135, 63,  4253 
+later, 919, "Stakeholder representatives carry out responsibilities", 918, 1267, 484, 500, 920, 135, 63,  4287 
+later, 923, "Stakeholder representatives agree with priorities", 918, 1280, 491, 507, 920, 139, 63,  4318 
+later, 972, "Stakeholders agree on necessary documentation", 918, 1280, 491, 513, 920, 139, 63,  4324 
+later, 968, "Criteria for selecting architecture are agreed", 931, 1280, 491, 513, 930, 139, 63,  4347 
+later, 986, "System is supported to agreed service levels", 931, 1280, 493, 515, 932, 139, 63,  4353 
+later, 1043, "Work is broken down into actionable items with clear definitions of done", 931, 1280, 493, 521, 932, 139, 63,  4359 
+later, 1044, "Team members are progressing on work items", 931, 1288, 498, 527, 940, 141, 63,  4388 
+later, 1038, "Oversight is in place", 931, 1288, 498, 533, 940, 145, 63,  4398 
+later, 1039, "Rules and regulations are understood", 931, 1288, 498, 539, 940, 145, 63,  4404 
+later, 1041, "Commitment is made", 945, 1288, 498, 539, 949, 145, 64,  4428 
+later, 1031, "Work initiator is known", 945, 1302, 505, 545, 949, 145, 66,  4457 
+later, 1032, "Work constraints are known", 959, 1316, 512, 545, 967, 145, 66,  4510 
+later, 989, "Issues and bugs are tracked and resolved", 959, 1321, 512, 545, 967, 145, 66,  4515 
+earlier, 1055, "Work artifacts are archived", 960, 1323, 512, 545, 968, 145, 66,  4519 
+earlier, 1054, "Any housekeeping tasks are completed", 960, 1325, 513, 546, 969, 146, 66,  4525 
+earlier, 1052, "All work items are completed", 961, 1325, 514, 547, 969, 147, 66,  4529 
+earlier, 977, "Critical interfaces and system configurations demonstrated", 961, 1325, 514, 550, 969, 147, 66,  4532 
+earlier, 979, "System has desired quality and performance characteristics", 961, 1332, 514, 550, 969, 147, 66,  4539 
+earlier, 980, "Functionality is tested and accepted", 961, 1332, 516, 550, 971, 147, 66,  4543 
+earlier, 945, "Return on investment is acceptable", 961, 1332, 516, 550, 973, 147, 66,  4545 
+earlier, 945, "Return on investment is acceptable", 961, 1337, 516, 551, 973, 147, 66,  4551 
+later, 978, "Users can operate system", 961, 1337, 516, 551, 975, 147, 66,  4553 
+later, 976, "Relevant stakeholders agree architecture is appropriate", 961, 1337, 516, 551, 975, 149, 66,  4555 
+later, 1001, "Team organization, responsibilities, and roles are understood", 974, 1337, 509, 551, 975, 145, 66,  4557 
+later, 1003, "External collaborators are identified", 988, 1337, 509, 551, 985, 145, 68,  4583 
+later, 996, "Target team size is determined", 988, 1351, 509, 551, 985, 147, 69,  4600 
+earlier, 1025, "Team reflects on practices, tools, principles, and values ", 988, 1351, 509, 551, 985, 149, 69,  4602 
+later, 1026, "Team is adapting practices and tools ", 988, 1351, 502, 551, 994, 149, 69,  4604 
+earlier, 1028, "Practices and tools naturally support team", 988, 1351, 509, 551, 994, 149, 69,  4611 
+earlier, 1048, "Rework is manageable", 988, 1351, 513, 551, 994, 147, 69,  4613 
+earlier, 1051, "Plan is revised to reflect team's performance", 988, 1357, 513, 551, 994, 147, 69,  4619 
+earlier, 1048, "Rework is manageable", 988, 1357, 513, 551, 994, 149, 69,  4621 
+later, 1049, "Progress metrics are tracked and acted upon", 988, 1357, 513, 551, 994, 151, 69,  4623 
+earlier, 982, "Agreed documentation is available", 988, 1357, 513, 551, 994, 152, 69,  4624 
+earlier, 984, "System is in use in operational environment", 988, 1357, 513, 551, 995, 152, 69,  4625 
+earlier, 984, "System is in use in operational environment", 988, 1362, 514, 552, 995, 152, 69,  4632 
+-----------------------------------------------------------------------------
+| Stakeholders    |  3 |  3 |  3 |  3 |  3 |  2 |  1 |
+| Opportunity     |  2 |  2 |  2 |  4 |  4 |  3 |
+| Requirements    |  3 |  3 |  3 |  4 |  5 |  4 |
+| Software System |  4 |  4 |  5 |  2 |  2 |  6 |  2 |
+| Team            |  3 |  4 |  4 |  5 |  5 |
+| Way-of-Working  |  4 |  4 |  5 |  4 |
+| Work            |  4 |  4 |  5 |  4 |  5 |  5 |
+-----------------------------------------------------------------------------
+.*
+
+Pending:
+  SimpleAlgorithm CMU1.1 kernel plus all team_data moves every checklist item one state later
+    # Temporarily skipped with xit
+    # ./spec/simple_algorithm_spec.rb:11
+  SimpleAlgorithm CMU1.1 kernel plus all team_data moves every checklist item one state earlier
+    # Temporarily skipped with xit
+    # ./spec/simple_algorithm_spec.rb:15
+  SimpleAlgorithm just work alpha works with work alpha and team 21 data
+    # Temporarily skipped with xit
+    # ./spec/simple_algorithm_spec.rb:28
+
+Finished in 83 minutes 18 seconds (files took 0.21449 seconds to load)
+4 examples, 0 failures, 3 pending
