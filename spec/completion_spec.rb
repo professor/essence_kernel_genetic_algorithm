@@ -5,7 +5,7 @@ require_relative '../lib/essence_kernel_genetic_algorithm/team_data_collection'
 describe Completion do
 
   context '#evaluate' do
-    let(:json_string) { File.read(File.expand_path('../fixtures/one_alpha_one_state.json', __FILE__)) }
+    let(:json_string) { File.read(File.expand_path('../fixtures/one_alpha_one_state_one_checklist_each.json', __FILE__)) }
     let(:individual) { Individual.from_json_string(json_string) }
 
     it 'works with trivial case' do

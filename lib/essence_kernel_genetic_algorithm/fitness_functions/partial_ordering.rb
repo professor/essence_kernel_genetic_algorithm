@@ -5,7 +5,7 @@ class PartialOrdering
     score = 0
     current_meeting = meeting_index
     while current_meeting < team.meetings.size
-      team.json[meeting_index].keys.each do |checklist|
+      team.meetings[meeting_index].keys.each do |checklist|
         next if checklist.to_i < 0
         score += 1 if individual.before(checklist_id, checklist.to_i)  #Todo fix json generator to not use strings
       end

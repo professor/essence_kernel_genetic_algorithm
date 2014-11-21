@@ -1,4 +1,5 @@
 require_relative '../lib/essence_kernel_genetic_algorithm/empirical_data'
+require_relative '../lib/essence_kernel_genetic_algorithm/fitness_functions/partial_ordering'
 
 describe EmpiricalData do
 
@@ -7,13 +8,13 @@ describe EmpiricalData do
 
   it 'calculates a total score' do
     team_data = EmpiricalData.load_team_data
-    score_hash = EmpiricalData.evaluate(individual, team_data)
+    score_hash = PartialOrdering.evaluate(individual, team_data)
     expect(score_hash[:total]).to eq 12973
   end
 
   it 'calculates a score for each teams dataset' do
     team_data = EmpiricalData.load_team_data
-    score_hash = EmpiricalData.evaluate(individual, team_data)
+    score_hash = PartialOrdering.evaluate(individual, team_data)
     expect(score_hash[21]).to eq 1238
     expect(score_hash[26]).to eq 2272
     expect(score_hash[108]).to eq 2620
