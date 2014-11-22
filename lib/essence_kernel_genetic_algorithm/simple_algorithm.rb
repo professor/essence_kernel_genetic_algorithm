@@ -2,7 +2,6 @@ require_relative './individual.rb'
 require_relative './operators.rb'
 require_relative './empirical_data.rb'
 require_relative './team_data_collection.rb'
-require_relative './fitness_functions/partial_ordering.rb'
 
 require 'pp'
 

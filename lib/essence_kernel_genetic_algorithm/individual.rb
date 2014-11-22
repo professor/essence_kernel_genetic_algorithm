@@ -2,7 +2,7 @@ require 'JSON'
 
 class Individual
 
-  attr_accessor :alphas
+  attr_accessor :alphas, :fitness
 
   def initialize()
 
@@ -165,6 +165,7 @@ class Individual
     from[:state] = state_index
 
     number_of_checklists = self.number_of_checklists(from) + able_to_insert_at_end
+    return nil if number_of_checklists == 0
     checklist_index = Random.rand(number_of_checklists)
     from[:checklist] = checklist_index
     from
@@ -174,8 +175,14 @@ class Individual
     random_helper(able_to_insert_at_end: 1)
   end
 
+
   def random_from
-    random_helper(able_to_insert_at_end: 0)
+    from = nil
+    loop do
+      from = random_helper(able_to_insert_at_end: 0)
+      break unless from == nil #it possible to find a state with no checklists
+    end
+    from
   end
 
   def random_state

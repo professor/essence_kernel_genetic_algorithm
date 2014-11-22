@@ -1,6 +1,7 @@
 class TeamData
 
   def initialize(ruby)
+    @lookup = nil
     @array_of_hashes = ruby
   end
 
