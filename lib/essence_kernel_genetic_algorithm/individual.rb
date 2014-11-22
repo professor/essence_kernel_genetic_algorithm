@@ -146,6 +146,12 @@ class Individual
     end
   end
 
+  def remove_state(state_loction)
+    (alpha_index, state_index, checklist_index) = index_parts(state_loction)
+
+    alphas[alpha_index]['states'].delete_at(state_index)
+  end
+
   def random_helper(options)
     able_to_insert_at_end = options[:able_to_insert_at_end]
     from = {}
@@ -170,6 +176,19 @@ class Individual
 
   def random_from
     random_helper(able_to_insert_at_end: 0)
+  end
+
+  def random_state
+    from = {}
+
+    number_of_alphas = self.number_of_alphas
+    alpha_index = Random.rand(number_of_alphas)
+    from[:alpha] = alpha_index
+
+    number_of_states = self.number_of_states(from)
+    state_index = Random.rand(number_of_states)
+    from[:state] = state_index
+    from
   end
 
   def total_number_of_checklists

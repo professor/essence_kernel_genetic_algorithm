@@ -44,4 +44,35 @@ describe Operators do
       expect(individual.lookup({alpha:0, state: state_index})['checklists'].any? { |c| c['id'] == id}).to eq true
     end
   end
+
+  context '#delete_state' do
+    let(:json_string) { File.read(File.expand_path('../fixtures/CMU_1.1_work_alpha_only.json', __FILE__)) }
+    let(:individual) { Individual.from_json_string(json_string) }
+
+    it 'works' do
+      delete_state = {alpha: 0, state: 1}
+      total_number_of_checklists = individual.total_number_of_checklists
+      number_of_checklists_0 = individual.number_of_checklists({alpha:0, state: 0})
+      number_of_checklists_1 = individual.number_of_checklists({alpha:0, state: 1})
+      number_of_checklists_2 = individual.number_of_checklists({alpha:0, state: 2})
+
+      allow(individual).to receive(:random_to).and_return({alpha: 0, state: 2})
+
+      Operators.delete_state(individual, delete_state)
+
+      expect(individual.total_number_of_checklists).to eq total_number_of_checklists
+      expect(individual.number_of_checklists({alpha:0, state: 0})).to eq number_of_checklists_0
+      expect(individual.number_of_checklists({alpha:0, state: 1})).to eq number_of_checklists_1 + number_of_checklists_2
+    end
+
+    it 'works' do
+      total_number_of_checklists = individual.total_number_of_checklists
+      number_of_states = individual.number_of_states({alpha:0})
+
+      Operators.delete_random_state(individual)
+
+      expect(individual.total_number_of_checklists).to eq total_number_of_checklists
+      expect(individual.number_of_states({alpha:0})).to eq number_of_states - 1
+    end
+  end
 end
