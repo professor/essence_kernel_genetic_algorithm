@@ -28,7 +28,7 @@ class SimpleAlgorithm
         number_of_checklists.times do |checklist_index|
           from = {alpha: alpha_index, state: state_index, checklist: checklist_index}
 
-          candidate = Marshal.load(Marshal.dump(original))
+          candidate = original.deep_clone
           checklist_description = candidate.lookup(from)['name']
 
           Operators.move_checklist_one_state_later(candidate, from) if (direction == :later)
@@ -54,7 +54,7 @@ class SimpleAlgorithm
     best_checklist_location = nil
     best_checklist = nil
     direction = nil
-    best_individual = Marshal.load(Marshal.dump(starting_individual))
+    best_individual = starting_individual.deep_clone
 
     #iterate through all checklists
     starting_individual.number_of_alphas.times do |alpha_index|
@@ -70,11 +70,11 @@ class SimpleAlgorithm
           checklist_id = starting_individual.lookup(from)['id']
           checklist_description = starting_individual.lookup(from)['name']
 
-          candidate_later = Marshal.load(Marshal.dump(starting_individual))
+          candidate_later = starting_individual.deep_clone
           Operators.move_checklist_one_state_later(candidate_later, from)
           candidate_later_score_hash = fitness_class.evaluate(candidate_later, team_data_collection)
 
-          candidate_earlier = Marshal.load(Marshal.dump(starting_individual))
+          candidate_earlier = starting_individual.deep_clone
           Operators.move_checklist_one_state_earlier(candidate_earlier, from)
           candidate_earlier_score_hash = fitness_class.evaluate(candidate_earlier, team_data_collection)
 
@@ -91,7 +91,7 @@ class SimpleAlgorithm
                 best_score_hash = candidate_later_score_hash
                 best_checklist = {id: checklist_id, description: checklist_description}
                 best_checklist_location = from
-                best_individual = Marshal.load(Marshal.dump(candidate_later))
+                best_individual = candidate_later.deep_clone
               end
           elsif earlier_delta > later_delta and earlier_delta > 0
             if EmpiricalData.is_candidate_score_better(best_score_hash, candidate_earlier_score_hash)
@@ -99,7 +99,7 @@ class SimpleAlgorithm
               best_score_hash = candidate_earlier_score_hash
               best_checklist = {id: checklist_id, description: checklist_description}
               best_checklist_location = from
-              best_individual = Marshal.load(Marshal.dump(candidate_earlier))
+              best_individual = candidate_earlier.deep_clone
             end
           end
         end

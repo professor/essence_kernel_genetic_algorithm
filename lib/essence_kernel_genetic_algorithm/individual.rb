@@ -8,6 +8,10 @@ class Individual
 
   end
 
+  def deep_clone
+    Marshal.load(Marshal.dump(self))
+  end
+
   def index_parts(hash)
     return [hash[:alpha], hash[:state], hash[:checklist]]
   end

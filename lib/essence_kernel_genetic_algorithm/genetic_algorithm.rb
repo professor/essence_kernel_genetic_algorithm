@@ -11,7 +11,7 @@ class GeneticAlgorithm
 
     population = []
     population_size.times do
-      candidate = Marshal.load(Marshal.dump(original))
+      candidate = original.deep_clone
       population << candidate
     end
     population
@@ -22,7 +22,7 @@ class GeneticAlgorithm
 
     population.length.times do |index|
       parent = population[index]
-      candidate = Marshal.load(Marshal.dump(parent))
+      candidate = parent.deep_clone
       if (Random.rand > 0.1)
         Operators.move_random_checklist_anywhere(candidate)
       else
