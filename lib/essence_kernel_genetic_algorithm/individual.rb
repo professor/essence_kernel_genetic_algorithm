@@ -5,7 +5,7 @@ class Individual
   attr_accessor :alphas, :fitness
 
   def initialize()
-
+    @location_hash = {}
   end
 
   def deep_clone
@@ -219,6 +219,45 @@ class Individual
       end
     end
     count
+  end
+
+  def self.create(number_of_alphas, number_of_states)
+    new = Individual.new
+    new.alphas = []
+    number_of_alphas.times do
+      states = []
+      number_of_states.times do
+        checklists = []
+        state_hash = {'checklists' => checklists}
+        states << state_hash
+      end
+      alpha_hash = {'states' => states}
+      new.alphas << alpha_hash
+    end
+    new
+  end
+
+  def populate_from(individual)
+    individual.number_of_alphas.times do |alpha_index|
+      from = {alpha: alpha_index}
+      number_of_states = individual.number_of_states(from)
+
+      number_of_states.times do |state_index|
+        from = {alpha: alpha_index, state: state_index}
+        number_of_checklists = individual.number_of_checklists(from)
+
+        while number_of_checklists > 0
+          remove = from.merge({checklist: number_of_checklists - 1})
+          checklist = individual.remove_checklist(remove)
+
+          to = self.random_to
+          self.add_checklist(to, checklist)
+
+          number_of_checklists = individual.number_of_checklists(from)
+        end
+      end
+    end
+
   end
 
   def pretty_print

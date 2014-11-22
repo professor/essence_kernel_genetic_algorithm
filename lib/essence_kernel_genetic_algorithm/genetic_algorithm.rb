@@ -5,7 +5,7 @@ require_relative './team_data_collection.rb'
 
 class GeneticAlgorithm
 
-  def initial_population(population_size)
+  def initial_kernel_population(population_size)
     kernel_json_string = File.read(File.expand_path('../../../spec/fixtures/CMU_1.1.json', __FILE__))
     original = Individual.from_json_string(kernel_json_string)
 
@@ -16,6 +16,21 @@ class GeneticAlgorithm
     end
     population
   end
+
+  def initial_population(population_size)
+    kernel_json_string = File.read(File.expand_path('../../../spec/fixtures/CMU_1.1.json', __FILE__))
+    original = Individual.from_json_string(kernel_json_string)
+
+    population = []
+    population_size.times do
+      copy = original.deep_clone
+      empty = Individual.create(6, 6)
+      empty.populate_from(copy)
+      population << empty
+    end
+    population
+  end
+
 
   def apply_operators(population)
     total_number_of_checklists = population[0].total_number_of_checklists
