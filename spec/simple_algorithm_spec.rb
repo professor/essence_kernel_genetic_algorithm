@@ -1,4 +1,6 @@
 require_relative '../lib/essence_kernel_genetic_algorithm/simple_algorithm'
+require_relative '../lib/essence_kernel_genetic_algorithm/fitness_functions/partial_ordering'
+require_relative '../lib/essence_kernel_genetic_algorithm/fitness_functions/completion'
 
 describe SimpleAlgorithm do
 
@@ -8,16 +10,18 @@ describe SimpleAlgorithm do
     let(:team_data) { EmpiricalData.load_team_data }
 
 
-    xit 'moves every checklist item one state later' do
-      subject.systematically_move_checklists_one_state(:later)
-    end
+    context 'PartialOrdering' do
+      xit 'moves every checklist item one state later' do
+        subject.systematically_move_checklists_one_state(PartialOrdering, :later)
+      end
 
-    xit 'moves every checklist item one state earlier' do
-      subject.systematically_move_checklists_one_state(:earlier)
-    end
+      xit 'moves every checklist item one state earlier' do
+        subject.systematically_move_checklists_one_state(PartialOrdering, :earlier)
+      end
 
-    xit 'moves every checklist item one state later' do
-      subject.repeatedly_move_best_checklists_one_state(individual, team_data, 'repeatedly_move_best_checklists_one_state_both')
+      xit 'moves every checklist item one state later' do
+        subject.repeatedly_move_best_checklists_one_state(PartialOrdering, individual, team_data, 'repeatedly_move_best_checklists')
+      end
     end
   end
 
@@ -28,7 +32,7 @@ describe SimpleAlgorithm do
     it 'works with work alpha and team 21 data' do
       team_data = EmpiricalData.load_team_data(['21_only_work_alpha'])
 
-      subject.repeatedly_move_best_checklists_one_state(individual, team_data, 'repeatedly_move_best_checklists_one_state_only_work_alpha_for_team_21')
+      subject.repeatedly_move_best_checklists_one_state(PartialOrdering, individual, team_data, 'repeatedly_move_best_checklists_only_work_alpha_for_team_21')
     end
   end
 
