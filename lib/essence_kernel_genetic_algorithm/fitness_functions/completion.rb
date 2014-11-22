@@ -1,11 +1,8 @@
 class Completion
 
-  def self.evaluate(individual, team_data_collection)
-    score_hash = {}
-    total_score = 0
-
-    team_data = team_data_collection.teams.values.first
-
+  private
+  def self.score_one_team_data(individual, team_data)
+    score = 0
     #iterate
     individual.number_of_alphas.times do |alpha_index|
       from = {alpha: alpha_index}
@@ -26,12 +23,26 @@ class Completion
 
           current_checklist_id = individual.lookup(from)['id']
           # binding.pry
-          total_score += 1 if team_data.contains?(current_checklist_id) and
+          score += 1 if team_data.contains?(current_checklist_id) and
             team_data.before?(earlier_checklist_ids, current_checklist_id)
 
           current_states_checklist_ids << current_checklist_id
         end
       end
+    end
+    score
+  end
+
+
+  public
+  def self.evaluate(individual, team_data_collection)
+    score_hash = {}
+    total_score = 0
+
+    team_data_collection.teams.each do |id, team|
+      score_for_team = score_one_team_data(individual, team)
+      score_hash[id] = score_for_team
+      total_score += score_for_team
     end
 
     score_hash[:total] = total_score
