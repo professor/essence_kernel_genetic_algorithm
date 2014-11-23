@@ -1,8 +1,20 @@
+require_relative '../lib/essence_kernel_genetic_algorithm/empirical_data'
 require_relative '../lib/essence_kernel_genetic_algorithm/fitness_functions/completion'
 require_relative '../lib/essence_kernel_genetic_algorithm/individual'
 require_relative '../lib/essence_kernel_genetic_algorithm/team_data_collection'
 
 describe Completion do
+
+  context 'for CMU1.1 kernel' do
+    let(:kernel_json_string) { File.read(File.expand_path('../fixtures/CMU_1.1.json', __FILE__)) }
+    let(:individual) { Individual.from_json_string(kernel_json_string) }
+
+    it 'calculates a total score' do
+      team_data = EmpiricalData.load_team_data
+      score_hash = Completion.evaluate(individual, team_data)
+      expect(score_hash[:total]).to eq 429
+    end
+  end
 
   context '#evaluate' do
     context 'trivial case of one state with one checklist' do
