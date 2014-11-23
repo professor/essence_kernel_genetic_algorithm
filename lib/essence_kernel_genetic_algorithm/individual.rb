@@ -219,13 +219,19 @@ class Individual
   def random_state
     from = {}
 
-    number_of_alphas = self.number_of_alphas
-    alpha_index = Random.rand(number_of_alphas)
-    from[:alpha] = alpha_index
+    loop do
+      number_of_alphas = self.number_of_alphas
+      alpha_index = Random.rand(number_of_alphas)
+      from[:alpha] = alpha_index
 
-    number_of_states = self.number_of_states(from)
-    state_index = Random.rand(number_of_states)
-    from[:state] = state_index
+      number_of_states = self.number_of_states(from)
+      if number_of_states != 0
+        state_index = Random.rand(number_of_states)
+        from[:state] = state_index
+        break
+      end
+    end
+
     from
   end
 
