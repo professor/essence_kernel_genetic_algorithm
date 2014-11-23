@@ -77,11 +77,16 @@ class GeneticAlgorithm
 
 
   def run(fitness_class, options)
-    population_size = 20
+    population_size = 40
     maximum_runs = options[:runs] || 1
     maximum_generations = options[:generations] || 20
     run = 0
     @team_data = EmpiricalData.load_team_data
+
+    File.open(File.expand_path("../../../generated_kernels/genetic_#{fitness_class.to_s.downcase}/pretty_print.txt", __FILE__), 'w')
+    File.open(File.expand_path("../../../generated_kernels/genetic_#{fitness_class.to_s.downcase}/log.csv", __FILE__), 'w')
+
+    puts "run, generation, best_fitness, average_fitness, worst_fitness"
 
     while run < maximum_runs
       population = initial_population(population_size)
@@ -99,10 +104,11 @@ class GeneticAlgorithm
 
         if(generation % 10 == 0)
           File.write(File.expand_path("../../../generated_kernels/genetic_#{fitness_class.to_s.downcase}/#{run}_#{generation}.json", __FILE__), JSON.pretty_generate(best_individual.alphas))
-          best_individual.pretty_print
+          File.open(File.expand_path("../../../generated_kernels/genetic_#{fitness_class.to_s.downcase}/pretty_print.txt", __FILE__), 'a') do |f|
+            best_individual.pretty_print_to_file(f)
+          end
         end
-
-        puts "run= #{run}, generation= #{generation}, best_fitness = #{best_fitness}, average_fitness = #{mean_fitness}, worst_fitness = #{worst_fitness}"
+        puts "#{run}, #{generation}, #{best_fitness}, #{mean_fitness}, #{worst_fitness}"
         generation += 1
       end
 

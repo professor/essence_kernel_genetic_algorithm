@@ -314,4 +314,25 @@ class Individual
     end
     puts '-----------------------------------------------------------------------------'
   end
+
+  def pretty_print_to_file(file)
+    file.puts '-----------------------------------------------------------------------------'
+    alphas.each_with_index do |alpha, alpha_index|
+      alpha_name = alpha['name']
+      alpha_id = alpha['id']
+
+      line = '| %-15.15s ' % alpha_name
+
+      alpha['states'].each_with_index do |state, state_index|
+        state_id = state['id']
+
+        number_of_checklists = state['checklists'].length
+        line += '| %2.2s ' % number_of_checklists
+      end
+
+      line += '|'
+      file.puts line
+    end
+    file.puts '-----------------------------------------------------------------------------'
+  end
 end
