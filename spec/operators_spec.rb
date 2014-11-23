@@ -50,29 +50,19 @@ describe Operators do
     let(:individual) { Individual.from_json_string(json_string) }
 
     it 'works' do
-      delete_state = {alpha: 0, state: 1}
+      delete_state = {alpha: 0, state: 4}
       total_number_of_checklists = individual.total_number_of_checklists
-      number_of_checklists_0 = individual.number_of_checklists({alpha:0, state: 0})
-      number_of_checklists_1 = individual.number_of_checklists({alpha:0, state: 1})
-      number_of_checklists_2 = individual.number_of_checklists({alpha:0, state: 2})
+      number_of_checklists_3 = individual.number_of_checklists({alpha:0, state: 3})
+      number_of_checklists_4 = individual.number_of_checklists({alpha:0, state: 4})
+      number_of_checklists_5 = individual.number_of_checklists({alpha:0, state: 5})
 
-      allow(individual).to receive(:random_to).and_return({alpha: 0, state: 2})
+      allow(individual).to receive(:random_to).and_return({alpha: 0, state: 5})
 
       Operators.delete_state(individual, delete_state)
 
       expect(individual.total_number_of_checklists).to eq total_number_of_checklists
-      expect(individual.number_of_checklists({alpha:0, state: 0})).to eq number_of_checklists_0
-      expect(individual.number_of_checklists({alpha:0, state: 1})).to eq number_of_checklists_1 + number_of_checklists_2
-    end
-
-    it 'works' do
-      total_number_of_checklists = individual.total_number_of_checklists
-      number_of_states = individual.number_of_states({alpha:0})
-
-      Operators.delete_random_state(individual)
-
-      expect(individual.total_number_of_checklists).to eq total_number_of_checklists
-      expect(individual.number_of_states({alpha:0})).to eq number_of_states - 1
+      expect(individual.number_of_checklists({alpha:0, state: 3})).to eq number_of_checklists_3
+      expect(individual.number_of_checklists({alpha:0, state: 4})).to eq number_of_checklists_4 + number_of_checklists_5
     end
   end
 

@@ -1,4 +1,5 @@
 require 'JSON'
+require_relative './operators.rb'
 
 class Individual
 
@@ -157,6 +158,11 @@ class Individual
       alphas[alpha_index]['states'][state_index]['checklists'].push(checklist)
     else
       alphas[alpha_index]['states'][state_index]['checklists'].insert(checklist_index, checklist)
+    end
+
+    current_state =  {alpha: alpha_index, state: state_index}
+    if self.number_of_checklists(current_state) > 8
+      Operators.split_state(self, current_state)
     end
   end
 
