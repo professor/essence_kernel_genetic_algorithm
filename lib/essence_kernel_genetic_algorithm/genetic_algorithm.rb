@@ -83,8 +83,11 @@ class GeneticAlgorithm
     run = 0
     @team_data = EmpiricalData.load_team_data
 
-    File.open(File.expand_path("../../../generated_kernels/genetic_#{fitness_class.to_s.downcase}/pretty_print.txt", __FILE__), 'w')
-    File.open(File.expand_path("../../../generated_kernels/genetic_#{fitness_class.to_s.downcase}/log.csv", __FILE__), 'w')
+    directory = "genetic_#{fitness_class.to_s.downcase}"
+    system 'mkdir', '-p', "generated_kernels/#{directory}"
+
+    File.open(File.expand_path("../../../generated_kernels/#{directory}/pretty_print.txt", __FILE__), 'w')
+    File.open(File.expand_path("../../../generated_kernels/#{directory}/log.csv", __FILE__), 'w')
 
     puts "run, generation, best_fitness, average_fitness, worst_fitness"
 
@@ -103,8 +106,8 @@ class GeneticAlgorithm
         (best_fitness, mean_fitness, worst_fitness) = best_mean_worst_fitness(population)
 
         if(generation % 10 == 0)
-          File.write(File.expand_path("../../../generated_kernels/genetic_#{fitness_class.to_s.downcase}/#{run}_#{generation}.json", __FILE__), JSON.pretty_generate(best_individual.alphas))
-          File.open(File.expand_path("../../../generated_kernels/genetic_#{fitness_class.to_s.downcase}/pretty_print.txt", __FILE__), 'a') do |f|
+          File.write(File.expand_path("../../../generated_kernels/#{directory}/#{run}_#{generation}.json", __FILE__), JSON.pretty_generate(best_individual.alphas))
+          File.open(File.expand_path("../../../generated_kernels/#{directory}/pretty_print.txt", __FILE__), 'a') do |f|
             best_individual.pretty_print_to_file(f)
           end
         end
