@@ -16,6 +16,17 @@ describe Completion do
     end
   end
 
+  context 'for Completion Fitness Function generated kernel' do
+    let(:kernel_json_string) { File.read(File.expand_path('../../generated_kernels/repeatedly_move_best_checklists_completion.json', __FILE__)) }
+    let(:individual) { Individual.from_json_string(kernel_json_string) }
+
+    it 'calculates a total score' do
+      team_data = EmpiricalData.load_team_data
+      score_hash = Completion.evaluate(individual, team_data)
+      expect(score_hash[:total]).to eq 680
+    end
+  end
+
   context '#evaluate' do
     context 'trivial case of one state with one checklist' do
       let(:json_string) { File.read(File.expand_path('../fixtures/one_alpha_one_state_one_checklist.json', __FILE__)) }

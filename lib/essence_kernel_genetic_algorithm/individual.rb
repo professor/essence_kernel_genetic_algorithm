@@ -102,7 +102,11 @@ class Individual
     json = JSON.parse(json_string)
 
     individual = Individual.new
-    individual.alphas = json['alphas']
+    if (json.is_a?(Hash))
+      individual.alphas = json['alphas']
+    else
+      individual.alphas = json
+    end
     individual.create_location_hash
     individual.copy_alpha_properties_to_each_checklist
     individual
