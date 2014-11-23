@@ -78,13 +78,6 @@
         ]
       },
       {
-        "id": 252,
-        "name": "Represented",
-        "checklists": [
-
-        ]
-      },
-      {
         "id": 253,
         "name": "Involved",
         "checklists": [
@@ -153,13 +146,6 @@
         ]
       },
       {
-        "id": 255,
-        "name": "Satisfied for Deployment",
-        "checklists": [
-
-        ]
-      },
-      {
         "id": 256,
         "name": "Experimenting",
         "checklists": [
@@ -187,13 +173,6 @@
             "original_state_name": "Satisfied in Use",
             "original_state_order": 6
           }
-        ]
-      },
-      {
-        "id": 257,
-        "name": "Satisfied in Use",
-        "checklists": [
-
         ]
       }
     ]
@@ -250,13 +229,6 @@
             "original_state_name": "Solution Needed",
             "original_state_order": 1
           }
-        ]
-      },
-      {
-        "id": 261,
-        "name": "Solution Needed",
-        "checklists": [
-
         ]
       },
       {
@@ -322,13 +294,6 @@
         ]
       },
       {
-        "id": 263,
-        "name": "Viable",
-        "checklists": [
-
-        ]
-      },
-      {
         "id": 264,
         "name": "Addressed",
         "checklists": [
@@ -372,13 +337,6 @@
             "original_state_name": "Benefit Accrued",
             "original_state_order": 5
           }
-        ]
-      },
-      {
-        "id": 265,
-        "name": "Benefit Accrued",
-        "checklists": [
-
         ]
       }
     ]
@@ -451,13 +409,6 @@
             "original_state_name": "Bounded",
             "original_state_order": 1
           }
-        ]
-      },
-      {
-        "id": 269,
-        "name": "Bounded",
-        "checklists": [
-
         ]
       },
       {
@@ -597,13 +548,6 @@
             "original_state_order": 5
           }
         ]
-      },
-      {
-        "id": 273,
-        "name": "Fulfilled",
-        "checklists": [
-
-        ]
       }
     ]
   },
@@ -691,13 +635,6 @@
             "original_state_name": "Demonstrable",
             "original_state_order": 1
           }
-        ]
-      },
-      {
-        "id": 277,
-        "name": "Demonstrable",
-        "checklists": [
-
         ]
       },
       {
@@ -790,13 +727,6 @@
             "original_state_name": "Operational",
             "original_state_order": 4
           }
-        ]
-      },
-      {
-        "id": 280,
-        "name": "Operational",
-        "checklists": [
-
         ]
       },
       {
@@ -961,13 +891,6 @@
             "original_state_name": "Formed",
             "original_state_order": 1
           }
-        ]
-      },
-      {
-        "id": 286,
-        "name": "Formed",
-        "checklists": [
-
         ]
       },
       {
@@ -1154,13 +1077,6 @@
             "original_state_name": "Practices & Tools Selected",
             "original_state_order": 1
           }
-        ]
-      },
-      {
-        "id": 293,
-        "name": "Practices & Tools Selected",
-        "checklists": [
-
         ]
       },
       {
@@ -1440,13 +1356,6 @@
             "original_state_name": "Started",
             "original_state_order": 2
           }
-        ]
-      },
-      {
-        "id": 302,
-        "name": "Concluded",
-        "checklists": [
-
         ]
       },
       {
