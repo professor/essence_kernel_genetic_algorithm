@@ -9,7 +9,7 @@ describe PartialOrdering do
   it 'calculates a total score' do
     team_data = EmpiricalData.load_team_data
     score_hash = PartialOrdering.evaluate(individual, team_data)
-    expect(score_hash[:total]).to eq 12973
+    expect(score_hash[:total]).to eq 11583
   end
 
   it 'calculates a score for each teams dataset' do
@@ -20,7 +20,5 @@ describe PartialOrdering do
     expect(score_hash[108]).to eq 2620
     expect(score_hash[121]).to eq 2152
     expect(score_hash[124]).to eq 3301
-    expect(score_hash[143]).to eq 1239
-    expect(score_hash[148]).to eq 151
   end
 end

@@ -12,7 +12,7 @@ describe Completion do
     it 'calculates a total score' do
       team_data = EmpiricalData.load_team_data
       score_hash = Completion.evaluate(individual, team_data)
-      expect(score_hash[:total]).to eq 429
+      expect(score_hash[:total]).to eq 375
     end
   end
 
@@ -23,7 +23,7 @@ describe Completion do
     it 'calculates a total score' do
       team_data = EmpiricalData.load_team_data
       score_hash = Completion.evaluate(individual, team_data)
-      expect(score_hash[:total]).to eq 680
+      expect(score_hash[:total]).to eq 559
     end
   end
 
