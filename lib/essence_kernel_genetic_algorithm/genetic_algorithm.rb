@@ -24,7 +24,8 @@ class GeneticAlgorithm
     population = []
     population_size.times do
       copy = original.deep_clone
-      empty = Individual.create(6, 6)
+      empty = Individual.create({number_of_alphas: Random.rand(1..7),
+          number_of_states: Random.rand(1..12)})
       empty.populate_from(copy)
       population << empty
     end

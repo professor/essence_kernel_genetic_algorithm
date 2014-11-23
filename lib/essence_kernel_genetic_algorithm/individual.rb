@@ -270,7 +270,9 @@ class Individual
   end
 
   public
-  def self.create(number_of_alphas, number_of_states)
+  def self.create(options)
+    number_of_alphas = options[:number_of_alphas]
+    number_of_states = options[:number_of_states]
     new = Individual.new
     new.alphas = []
     number_of_alphas.times do
