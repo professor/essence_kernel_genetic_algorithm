@@ -202,7 +202,7 @@ class Individual
     from[:state] = state_index
 
     number_of_checklists = self.number_of_checklists(from) + able_to_insert_at_end
-    if number_of_states == 0
+    if number_of_checklists == 0
       return from #checklist will be nil
     end
     checklist_index = Random.rand(number_of_checklists)
