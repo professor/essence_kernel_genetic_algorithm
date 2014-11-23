@@ -1,0 +1,99 @@
+*****-----------------------------------------------------------------------------
+| Stakeholders    |  3 |  5 |  3 |  4 |  1 |  1 |  1 |
+| Opportunity     |  2 |  3 |  4 |  3 |  3 |  2 |
+| Requirements    |  2 |  5 |  6 |  4 |  2 |  3 |
+| Software System |  7 |  3 |  4 |  2 |  3 |  5 |  1 |
+| Team            |  7 |  4 |  4 |  5 |  1 |
+| Way-of-Working  |  4 |  5 |  4 |  4 |
+| Work            |  4 |  8 |  3 |  6 |  2 |  4 |
+-----------------------------------------------------------------------------
+earlier, 914, "Stakeholder representatives are appointed", 1, 1, 1, 1, 1, 1, 1,  7 
+earlier, 915, "Stakeholder representatives agree to take on responsibilities", 2, 2, 2, 2, 2, 2, 2,  14 
+earlier, 931, "Problem is clearly articulated", 3, 3, 3, 3, 3, 3, 3,  21 
+earlier, 1000, "Team has enough resources to start addressing opportunity", 4, 4, 4, 4, 4, 4, 4,  28 
+earlier, 1001, "Team organization, responsibilities, and roles are understood", 5, 5, 5, 5, 5, 5, 5,  35 
+earlier, 1018, "Constraints about practices and tools are known", 6, 6, 6, 6, 6, 6, 6,  42 
+earlier, 1019, "Practices and tools are identified to address team's needs", 7, 7, 7, 7, 7, 7, 7,  49 
+earlier, 1020, "Practices and tools are consistent with values and principles", 8, 8, 8, 8, 8, 8, 8,  56 
+earlier, 1021, "A transition plan is defined to adopt new practices and tools", 9, 9, 9, 9, 9, 9, 9,  63 
+earlier, 1022, "Stakeholders accept external-facing practices and tools", 10, 10, 10, 10, 10, 10, 10,  70 
+earlier, 1038, "Oversight is in place", 11, 11, 11, 11, 11, 11, 11,  77 
+earlier, 1039, "Rules and regulations are understood", 12, 12, 12, 12, 12, 12, 12,  84 
+earlier, 1041, "Commitment is made", 13, 13, 13, 13, 13, 13, 13,  91 
+earlier, 932, "Opportunity addresses problem and stakeholder needs", 14, 14, 14, 12, 14, 14, 14,  96 
+earlier, 933, "Need for a software solution is confirmed", 15, 15, 15, 13, 15, 15, 15,  103 
+earlier, 1002, "Members know how to perform their work", 16, 14, 16, 14, 16, 16, 16,  108 
+earlier, 1003, "External collaborators are identified", 17, 15, 17, 15, 17, 17, 17,  115 
+later, 1052, "All work items are completed", 21, 19, 16, 14, 17, 16, 17,  120 
+later, 1053, "Stakeholders are satisfied with results", 21, 19, 21, 19, 17, 21, 17,  135 
+earlier, 948, "Purpose and extent of system are agreed", 19, 20, 22, 20, 18, 22, 18,  139 
+earlier, 916, "Stakeholders agree on collaboration approach", 20, 21, 23, 21, 16, 22, 19,  142 
+earlier, 917, "Representatives respect team's way of working", 21, 22, 24, 22, 17, 23, 19,  148 
+earlier, 918, "Stakeholder representatives empowered to take on responsibilities", 22, 23, 25, 23, 18, 23, 20,  154 
+earlier, 950, "Processes and tools for handling requirements are in place", 21, 24, 24, 24, 19, 24, 21,  157 
+earlier, 952, "Assumptions made while defining requirements are captured", 22, 24, 25, 25, 20, 25, 22,  163 
+earlier, 951, "Scope constraints are identified", 23, 23, 24, 26, 21, 26, 23,  166 
+earlier, 949, "Success criteria are clear", 24, 24, 25, 26, 22, 27, 24,  172 
+later, 962, "Requirements are testable", 25, 24, 25, 28, 22, 27, 24,  175 
+earlier, 976, "Relevant stakeholders agree architecture is appropriate", 26, 24, 26, 29, 21, 28, 24,  178 
+earlier, 975, "Key architecture characteristics are demonstrated", 27, 23, 27, 30, 22, 28, 24,  181 
+later, 977, "Critical interfaces and system configurations demonstrated", 27, 23, 27, 34, 22, 28, 24,  185 
+earlier, 984, "System is in use in operational environment", 27, 23, 28, 35, 23, 28, 24,  188 
+earlier, 985, "System is available to intended users", 27, 23, 29, 36, 24, 28, 24,  191 
+earlier, 986, "System is supported to agreed service levels", 27, 23, 30, 37, 25, 28, 24,  194 
+later, 1045, "Progress metrics are identified", 27, 22, 34, 37, 25, 28, 24,  197 
+later, 926, "Stakeholder representatives confirm system ready for deployment", 27, 23, 35, 37, 25, 28, 24,  199 
+earlier, 928, "Stakeholders confirm that system meets their expectations", 27, 24, 35, 38, 26, 28, 24,  202 
+earlier, 940, "Risks associated with solution are acceptable and manageable", 27, 25, 36, 38, 25, 29, 24,  204 
+earlier, 939, "Solution is deployable within constraints", 26, 26, 37, 38, 26, 30, 24,  207 
+earlier, 938, "Solution has been outlined", 27, 27, 38, 38, 26, 30, 24,  210 
+earlier, 944, "Operational use of solution creates tangible benefits", 27, 28, 39, 39, 25, 30, 24,  212 
+earlier, 945, "Return on investment is acceptable", 27, 29, 39, 40, 26, 30, 24,  215 
+earlier, 966, "Implemented requirements satisfy the need for a new system", 28, 28, 40, 39, 27, 31, 24,  217 
+earlier, 965, "There are no outstanding requirements to be implemented", 29, 28, 41, 40, 28, 32, 24,  222 
+earlier, 967, "Implemented requirements are fully accepted", 29, 29, 41, 40, 29, 33, 24,  225 
+earlier, 1036, "Resources to start work are in place", 30, 29, 38, 41, 30, 34, 25,  227 
+earlier, 1040, "Risk exposure is understood", 30, 30, 39, 42, 29, 35, 26,  231 
+earlier, 1035, "Cost and effort are estimated", 31, 28, 40, 43, 30, 36, 27,  235 
+earlier, 1037, "Acceptance criteria are defined", 30, 29, 41, 44, 31, 37, 28,  240 
+earlier, 1042, "A credible plan is in place", 31, 30, 42, 45, 32, 38, 29,  247 
+later, 921, "Stakeholder representatives promptly communicate to stakeholder group", 32, 30, 42, 45, 32, 38, 29,  248 
+earlier, 922, "Team values stakeholder representatives' input", 33, 30, 42, 45, 32, 38, 29,  249 
+earlier, 923, "Stakeholder representatives agree with priorities", 34, 30, 42, 45, 32, 38, 29,  250 
+earlier, 959, "Requirements are acceptable to stakeholders", 35, 30, 42, 45, 32, 38, 29,  251 
+-----------------------------------------------------------------------------
+| Stakeholders    |  8 |  0 |  4 |  3 |  0 |  3 |  0 |
+| Opportunity     |  5 |  0 |  7 |  0 |  5 |  0 |
+| Requirements    |  7 |  0 |  7 |  2 |  6 |  0 |
+| Software System |  9 |  0 |  5 |  5 |  0 |  5 |  1 |
+| Team            | 11 |  0 |  4 |  5 |  1 |
+| Way-of-Working  |  9 |  0 |  4 |  4 |
+| Work            | 12 |  0 |  2 |  7 |  0 |  6 |
+-----------------------------------------------------------------------------
+.**
+
+Pending:
+  SimpleAlgorithm CMU1.1 kernel plus all team_data PartialOrdering moves every checklist item one state later
+    # Temporarily skipped with xit
+    # ./spec/simple_algorithm_spec.rb:14
+  SimpleAlgorithm CMU1.1 kernel plus all team_data PartialOrdering moves every checklist item one state later
+    # Temporarily skipped with xit
+    # ./spec/simple_algorithm_spec.rb:17
+  SimpleAlgorithm CMU1.1 kernel plus all team_data PartialOrdering moves every checklist item one state earlier
+    # Temporarily skipped with xit
+    # ./spec/simple_algorithm_spec.rb:21
+  SimpleAlgorithm CMU1.1 kernel plus all team_data PartialOrdering moves every checklist item one state earlier
+    # Temporarily skipped with xit
+    # ./spec/simple_algorithm_spec.rb:24
+  SimpleAlgorithm CMU1.1 kernel plus all team_data PartialOrdering moves every checklist item one state later
+    # Temporarily skipped with xit
+    # ./spec/simple_algorithm_spec.rb:28
+  SimpleAlgorithm just work alpha works with work alpha and team 21 data
+    # Temporarily skipped with xit
+    # ./spec/simple_algorithm_spec.rb:42
+  SimpleAlgorithm just work alpha works with work alpha and team 21 data
+    # Temporarily skipped with xit
+    # ./spec/simple_algorithm_spec.rb:48
+
+Finished in 2 minutes 44.4 seconds (files took 0.24291 seconds to load)
+8 examples, 0 failures, 7 pending
