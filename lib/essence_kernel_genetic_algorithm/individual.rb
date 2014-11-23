@@ -166,6 +166,12 @@ class Individual
     alphas[alpha_index]['states'].delete_at(state_index)
   end
 
+  def add_state(state_location, state)
+    (alpha_index, state_index, checklist_index) = index_parts(state_location)
+
+    alphas[alpha_index]['states'].insert(state_index, state)
+  end
+
   def random_helper(options)
     able_to_insert_at_end = options[:able_to_insert_at_end]
     from = {}

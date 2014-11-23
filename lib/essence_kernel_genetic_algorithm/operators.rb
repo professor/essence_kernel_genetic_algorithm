@@ -64,4 +64,27 @@ class Operators
     delete_state = individual.random_state
     delete_state(individual, delete_state)
   end
+
+  def self.split_state(individual, split_state)
+    states = Individual.create_states(1)
+    insert_state = {alpha: split_state[:alpha], state: split_state[:state] + 1}
+
+    individual.add_state(insert_state, states[0])
+
+    original_number_of_checklists = individual.number_of_checklists(split_state)
+    remaining_number_of_checklists = original_number_of_checklists
+    while remaining_number_of_checklists > (original_number_of_checklists / 2)
+      from = split_state.merge({checklist: remaining_number_of_checklists - 1})
+      checklist = individual.remove_checklist(from)
+
+      individual.add_checklist(insert_state, checklist)
+      remaining_number_of_checklists = individual.number_of_checklists(split_state)
+    end
+    individual
+  end
+
+  def self.split_random_state(individual)
+    split_state = individual.random_state
+    split_state(individual, split_state)
+  end
 end
