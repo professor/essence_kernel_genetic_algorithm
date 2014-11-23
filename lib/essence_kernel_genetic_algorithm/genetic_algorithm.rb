@@ -99,6 +99,7 @@ class GeneticAlgorithm
 
         if(generation % 10 == 0)
           File.write(File.expand_path("../../../generated_kernels/genetic_#{fitness_class.to_s.downcase}/#{run}_#{generation}.json", __FILE__), JSON.pretty_generate(best_individual.alphas))
+          best_individual.pretty_print
         end
 
         puts "run= #{run}, generation= #{generation}, best_fitness = #{best_fitness}, average_fitness = #{mean_fitness}, worst_fitness = #{worst_fitness}"

@@ -257,4 +257,49 @@ describe Individual do
   it '#total_number_of_checklists' do
     expect(individual.total_number_of_checklists).to eq 147
   end
+
+  context '#remove_state' do
+    let(:json_string) { File.read(File.expand_path('../fixtures/one_alpha_two_states_one_checklist.json', __FILE__)) }
+    let(:individual) { Individual.from_json_string(json_string) }
+
+    it 'will remove the state' do
+      original_number_of_states = individual.number_of_states({alpha: 0})
+
+      individual.remove_state({alpha: 0, state: 0})
+      expect(individual.number_of_states({alpha: 0})).to eq original_number_of_states - 1
+
+      individual.remove_state({alpha: 0, state: 0})
+      expect(individual.number_of_states({alpha: 0})).to eq original_number_of_states - 2
+    end
+  end
+
+  context '#add_checklist' do
+    context 'for a state with no checklists' do
+      let(:json_string) { File.read(File.expand_path('../fixtures/one_alpha_one_state_one_checklist.json', __FILE__)) }
+      let(:individual) { Individual.from_json_string(json_string) }
+
+      it 'you can add a checklist' do
+        start = individual.deep_clone
+
+        checklist = individual.remove_checklist({alpha: 0, state: 0, checklist: 0})
+        individual.add_checklist({alpha: 0,  state: 0}, checklist)
+
+        expect(individual.alphas).to eq start.alphas
+      end
+    end
+
+    context 'for an alpha with no states' do
+      let(:json_string) { File.read(File.expand_path('../fixtures/one_alpha_one_state_one_checklist.json', __FILE__)) }
+      let(:individual) { Individual.from_json_string(json_string) }
+
+      it 'will remove the state' do
+        checklist = individual.remove_checklist({alpha: 0, state: 0, checklist: 0})
+        individual.remove_state({alpha: 0, state: 0})
+
+        individual.add_checklist({alpha: 0}, checklist)
+
+        expect(individual.number_of_states({alpha: 0})).to eq 1
+      end
+    end
+  end
 end

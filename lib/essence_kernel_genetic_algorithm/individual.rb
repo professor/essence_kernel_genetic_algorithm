@@ -143,6 +143,12 @@ class Individual
     (alpha_index, state_index, checklist_index) = index_parts(to)
     add_checklist_to_location_hash(checklist['id'], alpha_index, state_index)
 
+    if(state_index == nil)
+      states = Individual.create_states(1)
+      alphas[alpha_index]['states'] = states
+      state_index = 0
+    end
+
     if(checklist_index == nil)
       alphas[alpha_index]['states'][state_index]['checklists'].push(checklist)
     else
@@ -150,8 +156,8 @@ class Individual
     end
   end
 
-  def remove_state(state_loction)
-    (alpha_index, state_index, checklist_index) = index_parts(state_loction)
+  def remove_state(state_location)
+    (alpha_index, state_index, checklist_index) = index_parts(state_location)
 
     alphas[alpha_index]['states'].delete_at(state_index)
   end
@@ -165,6 +171,7 @@ class Individual
     from[:alpha] = alpha_index
 
     number_of_states = self.number_of_states(from)
+    return nil if number_of_states == 0
     state_index = Random.rand(number_of_states)
     from[:state] = state_index
 
@@ -176,7 +183,27 @@ class Individual
   end
 
   def random_to
-    random_helper(able_to_insert_at_end: 1)
+    able_to_insert_at_end = 1
+    from = {}
+
+    number_of_alphas = self.number_of_alphas
+    alpha_index = Random.rand(number_of_alphas)
+    from[:alpha] = alpha_index
+
+    number_of_states = self.number_of_states(from)
+    if number_of_states == 0
+      return from #state will be nil
+    end
+    state_index = Random.rand(number_of_states)
+    from[:state] = state_index
+
+    number_of_checklists = self.number_of_checklists(from) + able_to_insert_at_end
+    if number_of_states == 0
+      return from #checklist will be nil
+    end
+    checklist_index = Random.rand(number_of_checklists)
+    from[:checklist] = checklist_index
+    from
   end
 
 
@@ -221,16 +248,23 @@ class Individual
     count
   end
 
+  private
+  def self.create_states(number_of_states)
+    states = []
+    number_of_states.times do
+      checklists = []
+      state_hash = {'checklists' => checklists}
+      states << state_hash
+    end
+    states
+  end
+
+  public
   def self.create(number_of_alphas, number_of_states)
     new = Individual.new
     new.alphas = []
     number_of_alphas.times do
-      states = []
-      number_of_states.times do
-        checklists = []
-        state_hash = {'checklists' => checklists}
-        states << state_hash
-      end
+      states = create_states(number_of_states)
       alpha_hash = {'states' => states}
       new.alphas << alpha_hash
     end
