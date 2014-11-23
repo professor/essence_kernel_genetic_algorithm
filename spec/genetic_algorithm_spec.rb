@@ -7,7 +7,7 @@ describe GeneticAlgorithm do
   it 'works' do
     Random.srand(1234)
 
-    subject.run(Completion)
+    subject.run(Completion, {runs: 1, generations: 10})
 
   end
 
