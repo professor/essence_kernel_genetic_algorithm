@@ -77,6 +77,10 @@ class GeneticAlgorithm
     return best_fitness, mean_fitenss, worst_fitness
   end
 
+  def fitness_not_signficantly_improving(best_fitness, last_best_fitness)
+    # (best_fitness - last_best_fitness) / last_best_fitness.to_f < 0.0001
+    best_fitness == last_best_fitness
+  end
 
   def run(fitness_class, options)
     population_size = 40
@@ -99,6 +103,7 @@ class GeneticAlgorithm
       population = initial_population(population_size, number_of_alphas)
 
       generation = 0
+      last_best_fitness = 0
       while generation < maximum_generations
         population = apply_operators(population)
         population = calculate_fitness(population, fitness_class)
@@ -114,6 +119,8 @@ class GeneticAlgorithm
           File.open(File.expand_path("../../../generated_kernels/#{directory}/pretty_print.txt", __FILE__), 'a') do |f|
             best_individual.pretty_print_to_file(f)
           end
+          break if fitness_not_signficantly_improving(best_fitness, last_best_fitness)
+          last_best_fitness = best_fitness
         end
         puts "#{run}, #{generation}, #{best_fitness}, #{mean_fitness}, #{worst_fitness}"
         generation += 1
