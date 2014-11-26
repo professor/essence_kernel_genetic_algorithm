@@ -40,8 +40,11 @@ class GeneticAlgorithm
     population.length.times do |index|
       parent = population[index]
       candidate = parent.deep_clone
-      if (Random.rand > 0.1)
+      random = Random.rand
+      if (random > 0.2)
         Operators.move_random_checklist_anywhere(candidate)
+      elsif (random > 0.1)
+        Operators.split_random_state(candidate)
       else
         Operators.delete_random_state(candidate)
       end
@@ -91,13 +94,16 @@ class GeneticAlgorithm
     run = 0
     @team_data = EmpiricalData.load_team_data
 
-    directory = "genetic_#{fitness_class.to_s.downcase}"
+    alpha_directory = "three_operators_#{number_of_alphas}_by_random"
+    fitness_directory = "genetic_#{fitness_class.to_s.downcase}"
+    directory = alpha_directory + '/' + fitness_directory
+    system 'mkdir', '-p', "generated_kernels/#{alpha_directory}"
     system 'mkdir', '-p', "generated_kernels/#{directory}"
 
     File.open(File.expand_path("../../../generated_kernels/#{directory}/pretty_print.txt", __FILE__), 'w')
-    File.open(File.expand_path("../../../generated_kernels/#{directory}/log.csv", __FILE__), 'w')
+    log = File.open(File.expand_path("../../../generated_kernels/#{directory}/log.csv", __FILE__), 'w')
 
-    puts "run, generation, best_fitness, average_fitness, worst_fitness"
+    log.puts "run, generation, best_fitness, average_fitness, worst_fitness"
 
     while run < maximum_runs
       population = initial_population(population_size, number_of_alphas)
@@ -122,12 +128,15 @@ class GeneticAlgorithm
           break if fitness_not_signficantly_improving(best_fitness, last_best_fitness)
           last_best_fitness = best_fitness
         end
-        puts "#{run}, #{generation}, #{best_fitness}, #{mean_fitness}, #{worst_fitness}"
+        log.puts "#{run}, #{generation}, #{best_fitness}, #{mean_fitness}, #{worst_fitness}"
+        log.flush
         generation += 1
       end
 
       population[0].pretty_print
       run += 1
     end
+
+    log.close
   end
 end
