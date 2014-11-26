@@ -7,7 +7,8 @@ describe GeneticAlgorithm do
   it 'works' do
     Random.srand(1234)
 
-    subject.run(Completion, {runs: 1, generations: 10})
+    subject.run(Completion, {runs: 1, generations: 1000, number_of_alphas: 1})
+    # subject.run(PartialOrdering, {runs: 1, generations: 1000, number_of_alphas: 1})
 
   end
 

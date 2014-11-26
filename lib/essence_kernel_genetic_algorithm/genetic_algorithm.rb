@@ -17,21 +17,22 @@ class GeneticAlgorithm
     population
   end
 
-  def initial_population(population_size)
+  def initial_population(population_size, number_of_alphas)
     kernel_json_string = File.read(File.expand_path('../../../spec/fixtures/CMU_1.1.json', __FILE__))
     original = Individual.from_json_string(kernel_json_string)
 
     population = []
     population_size.times do
       copy = original.deep_clone
-      empty = Individual.create({number_of_alphas: Random.rand(1..7),
-          number_of_states: Random.rand(1..12)})
+      empty = Individual.create({number_of_alphas: number_of_alphas,
+        number_of_states: Random.rand(1..12)})
+      # empty = Individual.create({number_of_alphas: number_of_alphas,
+      #   number_of_states: 6})
       empty.populate_from(copy)
       population << empty
     end
     population
   end
-
 
   def apply_operators(population)
     total_number_of_checklists = population[0].total_number_of_checklists
@@ -81,6 +82,8 @@ class GeneticAlgorithm
     population_size = 40
     maximum_runs = options[:runs] || 1
     maximum_generations = options[:generations] || 20
+    number_of_alphas = options[:number_of_alphas] || 7
+
     run = 0
     @team_data = EmpiricalData.load_team_data
 
@@ -93,7 +96,7 @@ class GeneticAlgorithm
     puts "run, generation, best_fitness, average_fitness, worst_fitness"
 
     while run < maximum_runs
-      population = initial_population(population_size)
+      population = initial_population(population_size, number_of_alphas)
 
       generation = 0
       while generation < maximum_generations
