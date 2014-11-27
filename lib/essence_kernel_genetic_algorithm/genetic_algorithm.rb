@@ -125,7 +125,8 @@ class GeneticAlgorithm
       population = initial_population(population_size, number_of_alphas)
 
       generation = 0
-      last_best_fitness = 0
+      best_fitness_10_generations_ago = 0
+      best_fitness_20_generations_ago = 0
       while generation < maximum_generations
         population = apply_operators(population)
         population = calculate_fitness(population, fitness_class)
@@ -141,8 +142,9 @@ class GeneticAlgorithm
           File.open(File.expand_path("../../../generated_kernels/#{directory}/pretty_print.txt", __FILE__), 'a') do |f|
             best_individual.pretty_print_to_file(f)
           end
-          break if fitness_not_signficantly_improving(best_fitness, last_best_fitness)
-          last_best_fitness = best_fitness
+          break if generation > 100 and fitness_not_signficantly_improving(best_fitness, best_fitness_20_generations_ago)
+          best_fitness_20_generations_ago = best_fitness_10_generations_ago
+          best_fitness_10_generations_ago = best_fitness
         end
 
         # print_number_of_states_for_population(population, run, generation)
