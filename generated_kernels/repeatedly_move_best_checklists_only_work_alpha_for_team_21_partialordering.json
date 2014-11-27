@@ -12,14 +12,6 @@
         "name": "Initiated",
         "checklists": [
           {
-            "id": 1031,
-            "name": "Work initiator is known",
-            "original_alpha_name": "Work",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Initiated",
-            "original_state_order": 0
-          },
-          {
             "id": 1032,
             "name": "Work constraints are known",
             "original_alpha_name": "Work",
@@ -42,14 +34,6 @@
             "original_alpha_color": "Blue",
             "original_state_name": "Initiated",
             "original_state_order": 0
-          },
-          {
-            "id": 1037,
-            "name": "Acceptance criteria are defined",
-            "original_alpha_name": "Work",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Prepared",
-            "original_state_order": 1
           }
         ]
       },
@@ -58,12 +42,40 @@
         "name": "Prepared",
         "checklists": [
           {
-            "id": 1039,
-            "name": "Rules and regulations are understood",
+            "id": 1036,
+            "name": "Resources to start work are in place",
             "original_alpha_name": "Work",
             "original_alpha_color": "Blue",
             "original_state_name": "Prepared",
             "original_state_order": 1
+          },
+          {
+            "id": 1037,
+            "name": "Acceptance criteria are defined",
+            "original_alpha_name": "Work",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Prepared",
+            "original_state_order": 1
+          },
+          {
+            "id": 1038,
+            "name": "Oversight is in place",
+            "original_alpha_name": "Work",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Prepared",
+            "original_state_order": 1
+          }
+        ]
+      },
+      {
+        "checklists": [
+          {
+            "id": 1031,
+            "name": "Work initiator is known",
+            "original_alpha_name": "Work",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Initiated",
+            "original_state_order": 0
           },
           {
             "id": 1040,
@@ -74,16 +86,16 @@
             "original_state_order": 1
           },
           {
-            "id": 1041,
-            "name": "Commitment is made",
+            "id": 1039,
+            "name": "Rules and regulations are understood",
             "original_alpha_name": "Work",
             "original_alpha_color": "Blue",
             "original_state_name": "Prepared",
             "original_state_order": 1
           },
           {
-            "id": 1042,
-            "name": "A credible plan is in place",
+            "id": 1035,
+            "name": "Cost and effort are estimated",
             "original_alpha_name": "Work",
             "original_alpha_color": "Blue",
             "original_state_name": "Prepared",
@@ -120,16 +132,16 @@
             "original_state_order": 2
           },
           {
-            "id": 1036,
-            "name": "Resources to start work are in place",
+            "id": 1041,
+            "name": "Commitment is made",
             "original_alpha_name": "Work",
             "original_alpha_color": "Blue",
             "original_state_name": "Prepared",
             "original_state_order": 1
           },
           {
-            "id": 1038,
-            "name": "Oversight is in place",
+            "id": 1042,
+            "name": "A credible plan is in place",
             "original_alpha_name": "Work",
             "original_alpha_color": "Blue",
             "original_state_name": "Prepared",
@@ -142,24 +154,8 @@
         "name": "Under Control",
         "checklists": [
           {
-            "id": 1046,
-            "name": "Work items are being completed at a steady pace",
-            "original_alpha_name": "Work",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Under Control",
-            "original_state_order": 3
-          },
-          {
             "id": 1047,
             "name": "Unplanned work is manageable",
-            "original_alpha_name": "Work",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Under Control",
-            "original_state_order": 3
-          },
-          {
-            "id": 1048,
-            "name": "Rework is manageable",
             "original_alpha_name": "Work",
             "original_alpha_color": "Blue",
             "original_state_name": "Under Control",
@@ -188,22 +184,6 @@
             "original_alpha_color": "Blue",
             "original_state_name": "Under Control",
             "original_state_order": 3
-          },
-          {
-            "id": 1035,
-            "name": "Cost and effort are estimated",
-            "original_alpha_name": "Work",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Prepared",
-            "original_state_order": 1
-          },
-          {
-            "id": 1052,
-            "name": "All work items are completed",
-            "original_alpha_name": "Work",
-            "original_alpha_color": "Blue",
-            "original_state_name": "Concluded",
-            "original_state_order": 4
           }
         ]
       },
@@ -212,6 +192,14 @@
         "name": "Concluded",
         "checklists": [
           {
+            "id": 1052,
+            "name": "All work items are completed",
+            "original_alpha_name": "Work",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Concluded",
+            "original_state_order": 4
+          },
+          {
             "id": 1053,
             "name": "Stakeholders are satisfied with results",
             "original_alpha_name": "Work",
@@ -219,6 +207,28 @@
             "original_state_name": "Concluded",
             "original_state_order": 4
           },
+          {
+            "id": 1046,
+            "name": "Work items are being completed at a steady pace",
+            "original_alpha_name": "Work",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Under Control",
+            "original_state_order": 3
+          },
+          {
+            "id": 1048,
+            "name": "Rework is manageable",
+            "original_alpha_name": "Work",
+            "original_alpha_color": "Blue",
+            "original_state_name": "Under Control",
+            "original_state_order": 3
+          }
+        ]
+      },
+      {
+        "id": 303,
+        "name": "Closed",
+        "checklists": [
           {
             "id": 1054,
             "name": "Any housekeeping tasks are completed",
@@ -234,13 +244,7 @@
             "original_alpha_color": "Blue",
             "original_state_name": "Closed",
             "original_state_order": 5
-          }
-        ]
-      },
-      {
-        "id": 303,
-        "name": "Closed",
-        "checklists": [
+          },
           {
             "id": 1056,
             "name": "Progress metrics are archived",

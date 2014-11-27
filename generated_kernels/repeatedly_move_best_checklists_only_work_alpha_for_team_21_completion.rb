@@ -57,8 +57,11 @@
         "original_alpha_name"=>"Work",
         "original_alpha_color"=>"Blue",
         "original_state_name"=>"Prepared",
-        "original_state_order"=>1},
-       {"id"=>1039,
+        "original_state_order"=>1}]},
+    {"id"=>299,
+     "name"=>"Prepared",
+     "checklists"=>
+      [{"id"=>1039,
         "name"=>"Rules and regulations are understood",
         "original_alpha_name"=>"Work",
         "original_alpha_color"=>"Blue",
@@ -82,7 +85,6 @@
         "original_alpha_color"=>"Blue",
         "original_state_name"=>"Prepared",
         "original_state_order"=>1}]},
-    {"id"=>299, "name"=>"Prepared", "checklists"=>[]},
     {"id"=>300,
      "name"=>"Started",
      "checklists"=>
