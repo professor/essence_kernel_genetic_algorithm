@@ -85,6 +85,19 @@ class GeneticAlgorithm
     best_fitness == last_best_fitness
   end
 
+  def print_number_of_states_for_population(population, run, generation)
+    number_states = []
+    population.each do |individual|
+      number_states << individual.total_number_of_states
+    end
+    line = "#{run}, #{generation}, "
+    number_states.sort.each do |number|
+      line += "#{number}, "
+    end
+    log.puts line
+
+  end
+
   def run(fitness_class, options)
     population_size = 40
     maximum_runs = options[:runs] || 1
@@ -128,6 +141,8 @@ class GeneticAlgorithm
           break if fitness_not_signficantly_improving(best_fitness, last_best_fitness)
           last_best_fitness = best_fitness
         end
+
+        # print_number_of_states_for_population(population, run, generation)
         log.puts "#{run}, #{generation}, #{best_fitness}, #{mean_fitness}, #{worst_fitness}"
         log.flush
         generation += 1

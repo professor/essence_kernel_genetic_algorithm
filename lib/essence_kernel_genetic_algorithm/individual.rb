@@ -251,6 +251,17 @@ class Individual
     from
   end
 
+  def total_number_of_states
+    count = 0
+
+    self.number_of_alphas.times do |alpha_index|
+      from = {alpha: alpha_index}
+      number_of_states = self.number_of_states(from)
+      count += number_of_states
+    end
+    count
+  end
+
   def total_number_of_checklists
     count = 0
 
