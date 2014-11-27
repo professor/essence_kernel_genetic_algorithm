@@ -116,6 +116,9 @@ class GeneticAlgorithm
     File.open(File.expand_path("../../../generated_kernels/#{directory}/pretty_print.txt", __FILE__), 'w')
     log = File.open(File.expand_path("../../../generated_kernels/#{directory}/log.csv", __FILE__), 'w')
 
+    puts "tail -f generated_kernels/#{directory}/log.csv"
+    puts "tail -f generated_kernels/#{directory}/pretty_print.txt"
+
     log.puts "run, generation, best_fitness, average_fitness, worst_fitness"
 
     while run < maximum_runs
