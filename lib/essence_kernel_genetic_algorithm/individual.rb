@@ -129,6 +129,22 @@ class Individual
     end
   end
 
+  def apply_team_data_meeting_numbers(team_data_collection)
+    alphas.each do |alpha|
+      alpha['states'].each_with_index do |state, index|
+        state['checklists'].each do |checklist|
+          checklist_id = checklist['id']
+          meetings = []
+          team_data_collection.teams.each do |team_id, team_data|
+            # meetings[team_id] = team_data.meeting_index(checklist_id)
+            meetings << team_data.meeting_index(checklist_id)
+          end
+          checklist['meetings'] = meetings
+        end
+      end
+    end
+  end
+
   def remove_checklist_from_location_hash(checklist_index)
     @location_hash.delete(checklist_index)
   end

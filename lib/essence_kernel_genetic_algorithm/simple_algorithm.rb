@@ -8,11 +8,13 @@ require 'pp'
 class SimpleAlgorithm
 
   def systematically_move_checklists_one_state(fitness_class, direction)
+    team_data_collection = EmpiricalData.load_team_data
+
     kernel_json_string = File.read(File.expand_path('../../../spec/fixtures/CMU_1.1.json', __FILE__))
     original = Individual.from_json_string(kernel_json_string)
+    original.apply_team_data_meeting_numbers(team_data_collection)
 
-    team_data = EmpiricalData.load_team_data
-    original_score_hash = fitness_class.evaluate(original, team_data)
+    original_score_hash = fitness_class.evaluate(original, team_data_collection)
 
     puts "alpha_index, state_index, checklist_index, description, #{EmpiricalData.asbolute_comparison_header(original_score_hash)}"
 
@@ -34,7 +36,7 @@ class SimpleAlgorithm
           Operators.move_checklist_one_state_later(candidate, from) if (direction == :later)
           Operators.move_checklist_one_state_earlier(candidate, from) if (direction == :earlier)
 
-          candidate_score_hash = fitness_class.evaluate(candidate, team_data)
+          candidate_score_hash = fitness_class.evaluate(candidate, team_data_collection)
 
           puts "#{alpha_index}, #{state_index}, #{checklist_index}, \"#{checklist_description}\", #{EmpiricalData.asbolute_comparison_between(original_score_hash, candidate_score_hash)}"
 

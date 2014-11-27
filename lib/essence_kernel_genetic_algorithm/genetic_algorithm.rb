@@ -8,6 +8,7 @@ class GeneticAlgorithm
   def initial_kernel_population(population_size)
     kernel_json_string = File.read(File.expand_path('../../../spec/fixtures/CMU_1.1.json', __FILE__))
     original = Individual.from_json_string(kernel_json_string)
+    original.apply_team_data_meeting_numbers(@team_data)
 
     population = []
     population_size.times do
@@ -20,6 +21,7 @@ class GeneticAlgorithm
   def initial_population(population_size, number_of_alphas)
     kernel_json_string = File.read(File.expand_path('../../../spec/fixtures/CMU_1.1.json', __FILE__))
     original = Individual.from_json_string(kernel_json_string)
+    original.apply_team_data_meeting_numbers(@team_data)
 
     population = []
     population_size.times do

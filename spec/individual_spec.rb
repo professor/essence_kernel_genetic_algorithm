@@ -1,4 +1,5 @@
 require_relative '../lib/essence_kernel_genetic_algorithm/individual.rb'
+require_relative '../lib/essence_kernel_genetic_algorithm/empirical_data.rb'
 require 'JSON'
 
 describe Individual do
@@ -302,4 +303,21 @@ describe Individual do
       end
     end
   end
+
+  context '#apply_team_data_meeting_numbers' do
+    let(:json_string) { File.read(File.expand_path('../fixtures/CMU_1.1_work_alpha_only.json', __FILE__)) }
+    let(:individual) { Individual.from_json_string(json_string) }
+
+    it 'will add annotations about when the data occurs' do
+      team_data = EmpiricalData.load_team_data
+      individual.apply_team_data_meeting_numbers(team_data)
+
+      checklist = individual.lookup({alpha: 0, state: 0, checklist: 0})
+
+      # expect(checklist['meetings']).to eq ({21 => 0, 26 => 0, 108 => 0, 121 => 2, 124 => 2 })
+      expect(checklist['meetings']).to eq [0, 0, 0, 2, 2 ]
+    end
+
+  end
+
 end
