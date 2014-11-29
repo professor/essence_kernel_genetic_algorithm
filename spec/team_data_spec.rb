@@ -12,6 +12,10 @@ describe TeamData do
     expect(team_data.contains?(99)).to be false
   end
 
+  it 'checklists' do
+    expect(team_data.checklists).to eq({1 => true, 11 => true, 12 => true, 21 => true})
+  end
+
   context '#strict_before??' do
     it 'works for single ids' do
       expect(team_data.strict_before?(1, 11)).to be true
@@ -66,14 +70,10 @@ describe TeamData do
     end
   end
 
-
   it '#meeting_index' do
     expect(team_data.meeting_index(1)).to be 0
     expect(team_data.meeting_index(11)).to be 1
     expect(team_data.meeting_index(12)).to be 1
     expect(team_data.meeting_index(99)).to be nil
   end
-
-
 end
-

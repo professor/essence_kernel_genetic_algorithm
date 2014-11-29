@@ -19,6 +19,12 @@ class TeamData
     @lookup[checklist_id] != nil
   end
 
+  def checklists()
+    build_checklists if @checklists == nil
+    @checklists
+  end
+
+
   def strict_before?(checklist_id, second_checklist_id)
     build_lookup if @lookup == nil
 
@@ -61,6 +67,15 @@ class TeamData
     self.meetings.each_with_index do |meeting, meeting_index|
       meeting.keys.each do |checklist_id|
         @lookup[checklist_id.to_i] = meeting_index  #Todo fix json generator to not use strings
+      end
+    end
+  end
+
+  def build_checklists
+    @checklists = {}
+    self.meetings.each do |meeting|
+      meeting.keys.each do |checklist_id|
+        @checklists[checklist_id.to_i] = true  #Todo fix json generator to not use strings
       end
     end
   end
