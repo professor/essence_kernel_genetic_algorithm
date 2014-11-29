@@ -65,6 +65,7 @@ class GeneticAlgorithm
       end
 
       candidate.calculate_fitness(fitness_class, @team_data)
+      # puts "#{operator}, #{parent.fitness}, #{candidate.fitness}, #{candidate.fitness - parent.fitness}"
       population << candidate
     end
     population
@@ -97,8 +98,7 @@ class GeneticAlgorithm
     number_states.sort.each do |number|
       line += "#{number}, "
     end
-    log.puts line
-
+    line
   end
 
   def run(fitness_class, options)
@@ -149,7 +149,7 @@ class GeneticAlgorithm
           best_fitness_10_generations_ago = best_fitness
         end
 
-        # print_number_of_states_for_population(population, run, generation)
+        # log.puts print_number_of_states_for_population(population, run, generation)
         log.puts "#{run}, #{generation}, #{best_fitness}, #{mean_fitness}, #{worst_fitness}"
         log.flush
         generation += 1
