@@ -5,7 +5,7 @@ require_relative './team_data_collection.rb'
 
 class GeneticAlgorithm
 
-  def initial_kernel_population(population_size)
+  def initial_kernel_population(population_size, fitness_class)
     kernel_json_string = File.read(File.expand_path('../../../spec/fixtures/CMU_1.1.json', __FILE__))
     original = Individual.from_json_string(kernel_json_string)
     original.apply_team_data_meeting_numbers(@team_data)
@@ -13,12 +13,13 @@ class GeneticAlgorithm
     population = []
     population_size.times do
       candidate = original.deep_clone
+      candidate.calculate_fitness(fitness_class, @team_data)
       population << candidate
     end
     population
   end
 
-  def initial_population(population_size, number_of_alphas)
+  def initial_population(population_size, number_of_alphas, fitness_class)
     kernel_json_string = File.read(File.expand_path('../../../spec/fixtures/CMU_1.1.json', __FILE__))
     original = Individual.from_json_string(kernel_json_string)
     original.apply_team_data_meeting_numbers(@team_data)
@@ -31,24 +32,30 @@ class GeneticAlgorithm
       # empty = Individual.create({number_of_alphas: number_of_alphas,
       #   number_of_states: 6})
       empty.populate_from(copy)
+      empty.calculate_fitness(fitness_class, @team_data)
       population << empty
     end
     population
   end
 
-  def apply_operators(population)
+  def apply_operators(population, fitness_class)
     total_number_of_checklists = population[0].total_number_of_checklists
 
     population.length.times do |index|
       parent = population[index]
       candidate = parent.deep_clone
       random = Random.rand
+      operator = nil
       if (random > 0.2)
         Operators.move_random_checklist_anywhere(candidate)
+        operator = 'Move checklist'
+        operator += ' and split state' if parent.total_number_of_states != candidate.total_number_of_states
       elsif (random > 0.1)
         Operators.split_random_state(candidate)
+        operator = 'Split state'
       else
         Operators.delete_random_state(candidate)
+        operator = 'Delete state'
       end
 
       number_of_checklists = candidate.total_number_of_checklists
@@ -57,16 +64,10 @@ class GeneticAlgorithm
         binding.pry
       end
 
+      candidate.calculate_fitness(fitness_class, @team_data)
       population << candidate
     end
     population
-  end
-
-  def calculate_fitness(population, fitness_class)
-    population.each do |member|
-      score_hash = fitness_class.evaluate(member, @team_data)
-      member.fitness = score_hash[:total]
-    end
   end
 
   def best_mean_worst_fitness(population)
@@ -124,14 +125,13 @@ class GeneticAlgorithm
     log.puts "run, generation, best_fitness, average_fitness, worst_fitness"
 
     while run < maximum_runs
-      population = initial_population(population_size, number_of_alphas)
+      population = initial_population(population_size, number_of_alphas, fitness_class)
 
       generation = 0
       best_fitness_10_generations_ago = 0
       best_fitness_20_generations_ago = 0
       while generation < maximum_generations
-        population = apply_operators(population)
-        population = calculate_fitness(population, fitness_class)
+        population = apply_operators(population, fitness_class)
         population = population.sort_by { |member| member.fitness }.reverse
         population = population.slice(0..population_size - 1)
 

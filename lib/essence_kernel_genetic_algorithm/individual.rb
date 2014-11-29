@@ -145,6 +145,11 @@ class Individual
     end
   end
 
+  def calculate_fitness(fitness_class, team_data_collection)
+    score_hash = fitness_class.evaluate(self, team_data_collection)
+    self.fitness = score_hash[:total]
+  end
+
   def remove_checklist_from_location_hash(checklist_index)
     @location_hash.delete(checklist_index)
   end
