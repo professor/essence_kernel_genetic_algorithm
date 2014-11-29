@@ -161,6 +161,70 @@ describe Individual do
     end
   end
 
+  context '#before_or_equals' do
+    let(:meetings) {
+      {alphas:
+        [{states: [{checklists: [{id: 'alpha1_state1a'}, {id: 'alpha1_state1b'}]},
+          {checklists: [{id: 'alpha1_state2a'}, {id: 'alpha1_state2b'}]}]},
+          {states: [{checklists: [{id: 'alpha2_state1a'}, {id: 'alpha2_state1b'}]},
+            {checklists: [{id: 'alpha2_state2a'}, {id: 'alpha2_state2b'}]}]},
+        ]
+      }
+    }
+    let(:simple) { Individual.from_json_string(meetings.to_json) }
+
+    it 'two checklist in the same state are before_or_equals each other' do
+      expect(simple.before_or_equals('alpha1_state1a', 'alpha1_state1b')).to eq true
+      expect(simple.before_or_equals('alpha1_state1b', 'alpha1_state1a')).to eq true
+
+    end
+
+    it 'two checklists in different alphas are not before_or_equals each other' do
+      expect(simple.before_or_equals('alpha1_state1a', 'alpha2_state1a')).to eq false
+      expect(simple.before_or_equals('alpha2_state1a', 'alpha1_state1a')).to eq false
+    end
+
+    it 'is true for a checklists in a later state' do
+      expect(simple.before_or_equals('alpha1_state1a', 'alpha1_state2a')).to eq true
+    end
+
+    it 'is false for a checklist in an earlier state' do
+      expect(simple.before_or_equals('alpha1_state2a', 'alpha1_state1a')).to eq false
+    end
+  end
+
+  context '#equals_or_after' do
+    let(:meetings) {
+      {alphas:
+        [{states: [{checklists: [{id: 'alpha1_state1a'}, {id: 'alpha1_state1b'}]},
+          {checklists: [{id: 'alpha1_state2a'}, {id: 'alpha1_state2b'}]}]},
+          {states: [{checklists: [{id: 'alpha2_state1a'}, {id: 'alpha2_state1b'}]},
+            {checklists: [{id: 'alpha2_state2a'}, {id: 'alpha2_state2b'}]}]},
+        ]
+      }
+    }
+    let(:simple) { Individual.from_json_string(meetings.to_json) }
+
+    it 'two checklist in the same state are before_or_equals each other' do
+      expect(simple.equals_or_after('alpha1_state1a', 'alpha1_state1b')).to eq true
+      expect(simple.equals_or_after('alpha1_state1b', 'alpha1_state1a')).to eq true
+
+    end
+
+    it 'two checklists in different alphas are not equals_or_after each other' do
+      expect(simple.equals_or_after('alpha1_state1a', 'alpha2_state1a')).to eq false
+      expect(simple.equals_or_after('alpha2_state1a', 'alpha1_state1a')).to eq false
+    end
+
+    it 'is false for a checklists in a later state' do
+      expect(simple.equals_or_after('alpha1_state1a', 'alpha1_state2a')).to eq false
+    end
+
+    it 'is true for a checklist in an earlier state' do
+      expect(simple.equals_or_after('alpha1_state2a', 'alpha1_state1a')).to eq true
+    end
+  end
+
   it 'copies name and color to checklists' do
     alphas = individual.alphas
 

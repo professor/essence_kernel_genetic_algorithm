@@ -91,10 +91,26 @@ class Individual
   def before(checklist_id1, checklist_id2)
     location_1 = @location_hash[checklist_id1]
     location_2 = @location_hash[checklist_id2]
-    if location_1[:alpha] == location_2[:alpha]
-      if location_1[:state] < location_2[:state]
+    if location_1[:alpha] == location_2[:alpha] && location_1[:state] < location_2[:state]
         return true
-      end
+    end
+    return false
+  end
+
+  def before_or_equals(checklist_id1, checklist_id2)
+    location_1 = @location_hash[checklist_id1]
+    location_2 = @location_hash[checklist_id2]
+    if location_1[:alpha] == location_2[:alpha] && location_1[:state] <= location_2[:state]
+      return true
+    end
+    return false
+  end
+
+  def equals_or_after(checklist_id1, checklist_id2)
+    location_1 = @location_hash[checklist_id1]
+    location_2 = @location_hash[checklist_id2]
+    if location_1[:alpha] == location_2[:alpha] && location_1[:state] >= location_2[:state]
+      return true
     end
     return false
   end
