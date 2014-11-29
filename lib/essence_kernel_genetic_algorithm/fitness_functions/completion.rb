@@ -24,7 +24,7 @@ class Completion
           current_checklist_id = individual.lookup(from)['id']
           # binding.pry
           score += 1 if team_data.contains?(current_checklist_id) and
-            team_data.before?(earlier_checklist_ids, current_checklist_id)
+            team_data.strict_before?(earlier_checklist_ids, current_checklist_id)
 
           current_states_checklist_ids << current_checklist_id
         end
