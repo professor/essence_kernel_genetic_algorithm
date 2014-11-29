@@ -183,13 +183,14 @@ class Individual
 
   def add_checklist(to, checklist)
     (alpha_index, state_index, checklist_index) = index_parts(to)
-    add_checklist_to_location_hash(checklist['id'], alpha_index, state_index)
 
     if(state_index == nil)
       states = Individual.create_states(1)
       alphas[alpha_index]['states'] = states
       state_index = 0
     end
+
+    add_checklist_to_location_hash(checklist['id'], alpha_index, state_index)
 
     if(checklist_index == nil)
       alphas[alpha_index]['states'][state_index]['checklists'].push(checklist)
