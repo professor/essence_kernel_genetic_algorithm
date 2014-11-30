@@ -119,7 +119,7 @@ class SimpleAlgorithm
     Kernel.loop do
       (candidate, moved_checklist, moved_checklist_location, candidate_score_hash, direction) = find_best_checklist(fitness_class, candidate, team_data)
       if moved_checklist != nil
-        puts "#{direction.to_s}, #{moved_checklist[:id]}, \"#{moved_checklist[:description]}\", #{EmpiricalData.asbolute_comparison_between(original_score_hash, candidate_score_hash)}"
+        puts "#{candidate_score_hash[:total]}, #{direction.to_s}, #{moved_checklist[:id]}, \"#{moved_checklist[:description]}\", #{EmpiricalData.asbolute_comparison_between(original_score_hash, candidate_score_hash)}"
       end
 
       break if(previous_score_hash[:total] == candidate_score_hash[:total])
