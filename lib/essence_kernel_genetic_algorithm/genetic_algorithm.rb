@@ -124,13 +124,15 @@ class GeneticAlgorithm
 
     log.puts "run, generation, best_fitness, average_fitness, worst_fitness"
 
+    run_results = {best: [], average: [], worst: []}
+
     while run < maximum_runs
       population = initial_population(population_size, number_of_alphas, fitness_class)
 
       generation = 0
       best_fitness_10_generations_ago = 0
       best_fitness_20_generations_ago = 0
-      while generation < maximum_generations
+      while generation <= maximum_generations
         population = apply_operators(population, fitness_class)
         population = population.sort_by { |member| member.fitness }.reverse
         population = population.slice(0..population_size - 1)
@@ -147,9 +149,12 @@ class GeneticAlgorithm
           break if generation > 100 and fitness_not_signficantly_improving(best_fitness, best_fitness_20_generations_ago)
           best_fitness_20_generations_ago = best_fitness_10_generations_ago
           best_fitness_10_generations_ago = best_fitness
+
         end
+        update_run_results(run_results, best_fitness, generation, mean_fitness, run, worst_fitness)
 
         # log.puts print_number_of_states_for_population(population, run, generation)
+
         log.puts "#{run}, #{generation}, #{best_fitness}, #{mean_fitness}, #{worst_fitness}"
         log.flush
         generation += 1
@@ -159,6 +164,30 @@ class GeneticAlgorithm
       run += 1
     end
 
+    print_run_results(log, run_results, maximum_runs, maximum_generations)
+
     log.close
+  end
+
+  def update_run_results(run_results, best_fitness, generation, mean_fitness, run, worst_fitness)
+    generation_index = generation
+    if run == 0
+      run_results[:best][generation_index] = best_fitness
+      run_results[:average][generation_index] = mean_fitness
+      run_results[:worst][generation_index] = worst_fitness
+    else
+      run_results[:best][generation_index] = best_fitness if best_fitness > run_results[:best][generation_index]
+      run_results[:average][generation_index] += mean_fitness
+      run_results[:worst][generation_index] = worst_fitness if worst_fitness < run_results[:worst][generation_index]
+    end
+  end
+
+  def print_run_results(log, run_results, runs, length)
+    log.puts 'Generation, Best, Average, Worst'
+    puts 'Generation, Best, Average, Worst'
+    length.times.each do |index|
+      log.puts "#{index }, #{run_results[:best][index]}, #{run_results[:average][index] / runs}, #{run_results[:worst][index]}"
+      puts "#{index }, #{run_results[:best][index]}, #{run_results[:average][index] / runs}, #{run_results[:worst][index]}"
+    end
   end
 end
