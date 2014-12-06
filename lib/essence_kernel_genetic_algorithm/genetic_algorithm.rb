@@ -84,21 +84,25 @@ class GeneticAlgorithm
     return best_fitness, mean_fitenss, worst_fitness
   end
 
+  def most_mean_least_number_of_states(population)
+    population_size = population.length
+    most = population[0].total_number_of_states
+    least = most
+
+    total_number_states = 0
+    population.each do |individual|
+      number_of_states = individual.total_number_of_states
+      total_number_states += number_of_states
+      most = number_of_states if number_of_states > most
+      least = number_of_states if number_of_states < least
+    end
+    mean = total_number_states / population_size
+    return most, mean, least
+  end
+
   def fitness_not_signficantly_improving(best_fitness, last_best_fitness)
     # (best_fitness - last_best_fitness) / last_best_fitness.to_f < 0.0001
     best_fitness == last_best_fitness
-  end
-
-  def print_number_of_states_for_population(population, run, generation)
-    number_states = []
-    population.each do |individual|
-      number_states << individual.total_number_of_states
-    end
-    line = "#{run}, #{generation}, "
-    number_states.sort.each do |number|
-      line += "#{number}, "
-    end
-    line
   end
 
   def run(fitness_class, options)
@@ -124,7 +128,8 @@ class GeneticAlgorithm
 
     log.puts "run, generation, best_fitness, average_fitness, worst_fitness"
 
-    run_results = {best: [], average: [], worst: []}
+    fitness_results = {best: [], average: [], worst: []}
+    number_of_states_results = {best: [], average: [], worst: []}
 
     while run < maximum_runs
       population = initial_population(population_size, number_of_alphas, fitness_class)
@@ -146,14 +151,15 @@ class GeneticAlgorithm
           File.open(File.expand_path("../../../generated_kernels/#{directory}/pretty_print.txt", __FILE__), 'a') do |f|
             best_individual.pretty_print_to_file(f)
           end
-          break if generation > 100 and fitness_not_signficantly_improving(best_fitness, best_fitness_20_generations_ago)
+          # break if generation > 100 and fitness_not_signficantly_improving(best_fitness, best_fitness_20_generations_ago)
           best_fitness_20_generations_ago = best_fitness_10_generations_ago
           best_fitness_10_generations_ago = best_fitness
 
         end
-        update_run_results(run_results, best_fitness, generation, mean_fitness, run, worst_fitness)
+        update_run_results(fitness_results, run, generation, best_fitness, mean_fitness, worst_fitness)
 
-        # log.puts print_number_of_states_for_population(population, run, generation)
+        (most_number_of_states, mean_number_of_states, least_number_of_states) = most_mean_least_number_of_states(population)
+        update_run_results(number_of_states_results, run, generation, most_number_of_states, mean_number_of_states, least_number_of_states)
 
         log.puts "#{run}, #{generation}, #{best_fitness}, #{mean_fitness}, #{worst_fitness}"
         log.flush
@@ -164,12 +170,13 @@ class GeneticAlgorithm
       run += 1
     end
 
-    print_run_results(log, run_results, maximum_runs, maximum_generations)
+    print_run_results(log, "Fitness", fitness_results, maximum_runs, maximum_generations)
+    print_run_results(log, "Number of states", number_of_states_results, maximum_runs, maximum_generations)
 
     log.close
   end
 
-  def update_run_results(run_results, best_fitness, generation, mean_fitness, run, worst_fitness)
+  def update_run_results(run_results, run, generation, best_fitness, mean_fitness, worst_fitness)
     generation_index = generation
     if run == 0
       run_results[:best][generation_index] = best_fitness
@@ -182,7 +189,9 @@ class GeneticAlgorithm
     end
   end
 
-  def print_run_results(log, run_results, runs, length)
+  def print_run_results(log, header, run_results, runs, length)
+    log.puts header
+    puts header
     log.puts 'Generation, Best, Average, Worst'
     puts 'Generation, Best, Average, Worst'
     length.times.each do |index|
