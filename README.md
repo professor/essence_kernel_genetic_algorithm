@@ -3,7 +3,7 @@
 The SEMAT community released the Essence Kernel in 2012.
 This software is a genetic algorithm that use empirical data to derive alternative kernels.
 
-If you are looking for a tool to help you with Essence, check out (SEMAT Essence Tool)[http://semat.herokuapp.com]
+If you are looking for a tool to help you with Essence, check out [SEMAT Essence Tool](http://semat.herokuapp.com)
 
 ## Directions for installation
 
