@@ -1,26 +1,44 @@
 # EssenceKernelGeneticAlgorithm
 
-TODO: Write a gem description
+The SEMAT community released the Essence Kernel in 2012.
+This software is a genetic algorithm that use empirical data to derive alternative kernels.
 
-## Installation
+If you are looking for a tool to help you with Essence, check out (SEMAT Essence Tool)[http://semat.herokuapp.com]
 
-Add this line to your application's Gemfile:
+## Directions for installation
 
-```ruby
-gem 'essence_kernel_genetic_algorithm'
-```
+1) determine which version of ruby is on your system
 
-And then execute:
+    ruby --version
 
-    $ bundle
+Note: I’m using ruby 2.1.1, but anything 1.9 or larger should probably work
 
-Or install it yourself as:
+2) Update the Gemfile with the version of ruby that you are using
 
-    $ gem install essence_kernel_genetic_algorithm
+    vi Gemfile
 
-## Usage
+3) install bundler, the ruby library manager
 
-TODO: Write usage instructions here
+    gem install bundler
+
+4) install ruby libraries
+
+    bundle install
+
+5) run the test suite
+
+    rspec spec/*
+
+6) run the code
+
+    modify spec/genetic_algorithm_spec.rb and lib/essence_kernel_genetic_algorithm/genetic_algorithm.rb for run parameters
+    rspec spec/genetic_algorithm_spec.rb
+
+    for incremental updates to the Essence Kernel run:
+    rspec spec/simple_algorithm_spec.rb
+
+
+
 
 ## Contributing
 
